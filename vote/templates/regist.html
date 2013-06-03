@@ -1,20 +1,23 @@
 {%extends "base_user.html"%}
 {%block title%}regist{%endblock%}
-{%block form%}
+{%block content%}
+<div class="container">
       <form class="form-signin" action="/account/regist/" method="post">
         {%csrf_token %}
-        {%if message %}
+        
+        <h2 class="form-signin-heading">Please regist</h2>
+        <input type="text"  name="email" value="{{email}}" placeholder="Email"/><br/>
+        <input type="text"  name="username" value="{{username}}" placeholder="Username"/><br/>
+        <input type="password" name="password" placeholder="Password"/><br/>
+        <input type="password" name="confirm_pwd" placeholder="Comfirm Password"/><br/>
+        <button class="btn btn-large btn-primary" type="submit">Submit</button>
+	<input type="button" class="btn btn-large" onclick="window.location.href='/account/login'" value="Back"/>
+      </form>
+{%if message %}
         <div class="alert alert-error">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	{{message}}
 	</div>
-        {%endif %}
-        <h2 class="form-signin-heading">Please regist</h2>
-        <input type="text"  name="email" value="{{email}}" class="input-block-level" placeholder="Email"/>
-        <input type="text"  name="username" value="{{username}}" class="input-block-level" placeholder="Username"/>
-        <input type="password" name="password" class="input-block-level" placeholder="Password"/>
-        <input type="password" name="confirm_pwd" class="input-block-level" placeholder="Comfirm Password"/>
-        <button class="btn btn-large btn-primary" type="submit">Submit</button>
-	<input type="button" class="btn btn-large" onclick="window.location.href='/account/login'" value="Back"/>
-      </form>
+{%endif %}
+        
 {%endblock%}

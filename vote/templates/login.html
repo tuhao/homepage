@@ -1,18 +1,25 @@
-{% extends "base_user.html" %}
+{% extends "base_index.html" %}
 {% block title%}login{% endblock %}
-   {% block form %}
+{%block sidebar%}{%endblock%}
+   {% block content %}
+<div class="container">
       <form class="form-signin" action="/account/login/" method="post">
         {%csrf_token %}
+	<h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" name="username" value="{{username}}" placeholder="Username"/><br/>
+        <input type="password" name="password" placeholder="Password"/><br/>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+        <input class="btn btn-large" type="button" value="Regist" onclick="window.location.href='/account/regist'"/>
+
+      </form>
+
 	{%if message%}
 	<div class="alert alert-error">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	{{message}}
 	</div>
 	{%endif%}
-	<h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" name="username" value="{{username}}" class="input-block-level" placeholder="Username"/>
-        <input type="password" name="password" class="input-block-level" placeholder="Password"/>
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-        <input class="btn btn-large" type="button" value="Regist" onclick="window.location.href='/account/regist'"/>
-      </form>
+
+</div>
 {% endblock %}
+{%block footer%}{%endblock%}

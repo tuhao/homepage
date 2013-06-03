@@ -51,15 +51,17 @@ def regist(request):
 
 def vote(request):
     polls = Poll.objects.order_by('-pub_date')[0:20]
-    return render_to_response("vote.html",{'polls':polls})
+    return render_to_response("vote.html",{'polls':polls},context_instance=RequestContext(request))
 
 def poll(request,offset):
     choises = None
+    poll = None
     try:
         poll_id = int(offset)
     except ValueError:
         raise Http404()
     else:
-        choises = Choise.objects.filter('poll')
-    return render_to_response("vote_detail.html",{'choises':choises})
+        choises = Choise.objects.filter(poll_id=poll_id)
+        poll = Poll.objects.filter(id=poll_id)
+    return render_to_response("vote_detail.html",{'choises':choises,'poll':poll},context_instance=RequestContext(request))
     
