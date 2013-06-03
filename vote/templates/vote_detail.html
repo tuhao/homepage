@@ -1,0 +1,16 @@
+{%extends "base_index.html"%}
+{%block title%}vote{%unblock%}
+{%block sidebar%}{%unblock%}
+{%block content%}
+<table class="table">
+<tr>
+<td>{{poll.question}}</td>
+<td>
+{%for choise in choises%}
+<input type="radio" value="{{choise.id}}"/>{{choise.choise_text}}
+{%endfor%}
+</td>
+</tr>
+</table>
+{%unblock%}
+{%block footer%}{%unblock%}

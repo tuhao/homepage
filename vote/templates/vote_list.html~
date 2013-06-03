@@ -1,0 +1,3 @@
+{%extends "base_index.html"%}
+{%block sideBar%}{%endblock%}
+{%block footer%}{%endblock%}

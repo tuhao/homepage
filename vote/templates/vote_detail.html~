@@ -1,0 +1,7 @@
+{%extends "base_index.html"%}
+{%block title%}vote{%unblock%}
+{%block sidebar%}{%unblock%}
+{%block content%}
+
+{%unblock%}
+{%block footer%}{%unblock%}
