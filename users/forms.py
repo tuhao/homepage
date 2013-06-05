@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 class RegistForm(forms.Form):
     email = forms.EmailField(required=False)
     username = forms.CharField()
-    password = forms.CharField()
-        
+    password = forms.CharField(widget=forms.PasswordInput())
+    confirmPwd = forms.CharField(widget=forms.PasswordInput())
+
     def clean_email(self):
         email = self.cleaned_data['email']
         if len(email) ==0:
@@ -32,8 +33,16 @@ class RegistForm(forms.Form):
         return username
 
     def clean_password(self):
-        password = self.cleaned_data['password']
+        password = self.cleaned_data.get('password','')
         pwd_len = len(password)
         if pwd_len < 5 or pwd_len > 12:
             raise forms.ValidationError('password should be 5-12 characters or numbers')
         return password
+
+    def clean_confirmPwd(self):
+        password = self.cleaned_data.get('password','')
+        confirmPwd = self.cleaned_data.get('confirmPwd','')
+        if password != confirmPwd:
+            raise forms.ValidationError('confirm password is not the same')
+        return confirmPwd
+            

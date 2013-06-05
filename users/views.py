@@ -56,12 +56,18 @@ def vote(request):
 def poll(request,offset):
     choises = None
     poll = None
-    try:
-        poll_id = int(offset)
-    except ValueError:
-        raise Http404()
+    if request.method == 'POST':
+        choise_id = request['choise_group']
+        
+        return render_to_response("vote_detail.html",{'choise_id':choise_id},context_instance=RequestContext(request))
     else:
-        choises = Choise.objects.filter(poll_id=poll_id)
-        poll = Poll.objects.filter(id=poll_id)
-    return render_to_response("vote_detail.html",{'choises':choises,'poll':poll},context_instance=RequestContext(request))
+        try:
+            poll_id = int(offset)
+        except ValueError:
+            raise Http404()
+        else:
+            choises = Choise.objects.filter(poll_id=poll_id)
+            poll = Poll.objects.filter(id=poll_id)[0]
+            polls = Poll.objects.order_by('-pub_date')[0:20]
+            return render_to_response("vote_detail.html",{'choises':choises,'poll':poll,'polls':polls},context_instance=RequestContext(request))
     
