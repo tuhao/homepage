@@ -22,8 +22,11 @@ urlpatterns = patterns('',
     url(r'^account/regist/$',regist),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^vote/',include('users.urls')),
-
+    url(r'^vote/$',poll),
+    url(r'^vote/poll/(\d+)/$',poll),
+    url(r'^poll/(?P<poll_id>\d+)/vote/$',vote),
+    url(r'^(?P<poll_id>\d+)/poll/vote/$',results),
+    
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/css'}),
     url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/js'}),
 )

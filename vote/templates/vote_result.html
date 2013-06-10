@@ -1,0 +1,13 @@
+{%extends "vote.html"%}
+{%block title%}{{poll.question}}{%endblock%}
+{%block sidebar%}
+{%endblock%}
+{%block content%}
+<ul>
+{%for choise in poll.choise_set.all %}
+<li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
+{%endfor%}
+</ul>
+{%endblock%}
+{%block footer%}
+{%endblock%}

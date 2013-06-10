@@ -23,7 +23,7 @@ function choose(id){
     document.getElementById(id).checked = true;
 }
 </script>
-<form action="/vote/poll/{{poll.id}}/" method="post">
+<form action="/vote/{{poll.id}}/vote/" method="post">
 {%csrf_token %}
 <table class="table">
 <tr>
@@ -36,14 +36,20 @@ function choose(id){
 </tr>
 <tr>
 <td>
-{%for choise in choises%}
-<input type="radio" name="choise_group" id="radio_{{choise.id}}" value="{{choise.id}}"/><lable onclick="choose('radio_{{choise.id}}')">{{choise.choise_text}}</lable>&nbsp;
+{{choise_id}}
+{%for choise in poll.choise_set.all%}
+<input type="radio" name="choise" id="choise_{{choise.id}}" value="{{choise.id}}"/><lable onclick="choose('choise_{{choise.id}}')">{{choise.choise_text}}</lable><br/>
 {%endfor%}
 </td>
 </tr>
 <tr>
 <td>
-<button type="submit" class="btn btn-large btn-primary">Submit</button>
+<button type="submit" class="btn btn-large btn-primary">Vote</button>
+</td>
+</tr>
+<tr>
+<td>
+<span style="color:red">{{error}}</span>
 </td>
 </tr>
 </table>

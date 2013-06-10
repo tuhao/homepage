@@ -1,14 +1,17 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,get_object_or_404
 from django.template import RequestContext
 from django.contrib import auth
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.http import HttpResponseRedirect,Http404
+from django.core.urlresolvers import reverse
 from users.forms import RegistForm
 from users.models import *
 
+#from django.contrib.auth.forms import UserCreationForm
+
 # Create your views here.
+
 
 def login(request):
     username = ''
@@ -49,25 +52,28 @@ def regist(request):
     return render_to_response("regist.html",context_instance=RequestContext(request))
 
 
-def vote(request):
+def vote(request,poll_id):
     polls = Poll.objects.order_by('-pub_date')[0:20]
-    return render_to_response("vote.html",{'polls':polls},context_instance=RequestContext(request))
-
-def poll(request,offset):
-    choises = None
-    poll = None
-    if request.method == 'POST':
-        choise_id = request['choise_group']
-        
-        return render_to_response("vote_detail.html",{'choise_id':choise_id},context_instance=RequestContext(request))
+    poll = get_object_or_404(Poll,pk=poll_id)
+    try:
+        selected_choise = poll.choise_set.get(id=request.POST['choise'])
+    except (KeyError,Choise.DoesNotExist):
+        return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You must select a choise'},context_instance=RequestContext(request))
     else:
-        try:
-            poll_id = int(offset)
-        except ValueError:
-            raise Http404()
-        else:
-            choises = Choise.objects.filter(poll_id=poll_id)
-            poll = Poll.objects.filter(id=poll_id)[0]
-            polls = Poll.objects.order_by('-pub_date')[0:20]
-            return render_to_response("vote_detail.html",{'choises':choises,'poll':poll,'polls':polls},context_instance=RequestContext(request))
+        selected_choise.votes += 1
+        selected_choise.save()
+        return HttpResponseRedirect(reverse('users.views.results',args=(poll.id,)))
     
+def polls(request):
+    polls = Poll.objects.order_by('-pub_date')[0:20]
+    return render_to_response("vote_detail.html",{'polls':polls},context_instance=RequestContext(request))
+
+def detail(request,poll_id):
+    polls = Poll.objects.order_by('-pub_date')[0:20]
+    poll = get_object_or_404(Poll,pk=poll_id)
+    return render_to_response("vote_detail.html",{'polls':polls,'poll':poll},context_instance=RequestContext(request))
+
+def results(request,poll_id):
+    poll = get_object_or_404(Poll,pk=poll_id)
+    #polls = Poll.objects.order_by('-pub_date')[:20]
+    return render_to_response("vote_result.html",{'poll':poll},context_instance=RequestContext(request))
