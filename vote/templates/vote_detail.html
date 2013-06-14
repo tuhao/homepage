@@ -22,6 +22,8 @@
 function choose(id){
     document.getElementById(id).checked = true;
 }
+
+window.onload = changeActive(1);
 </script>
 <form action="/vote/{{poll.id}}/vote/" method="post">
 {%csrf_token %}

@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect,Http404
 from django.core.urlresolvers import reverse
 from users.forms import RegistForm
 from users.models import *
+from django.contrib.auth.decorators import login_required
 
 #from django.contrib.auth.forms import UserCreationForm
 
@@ -51,10 +52,14 @@ def regist(request):
             return render_to_response("regist.html",{'username':request.POST.get('username'),'email':request.POST.get('email'),'message':form.errors},context_instance=RequestContext(request))
     return render_to_response("regist.html",context_instance=RequestContext(request))
 
-
+@login_required
 def vote(request,poll_id):
-    polls = Poll.objects.order_by('-pub_date')[0:20]
+    polls = Poll.objects.order_by('-pub_date')[0:20] 
+    user = request.session.get("user",None)
     poll = get_object_or_404(Poll,pk=poll_id)
+    poll_record = Record.objects.filter(user=user,poll=poll)
+    if poll_record:
+        return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You had already made a choise'},context_instance=RequestContext(request))
     try:
         selected_choise = poll.choise_set.get(id=request.POST['choise'])
     except (KeyError,Choise.DoesNotExist):
@@ -62,6 +67,8 @@ def vote(request,poll_id):
     else:
         selected_choise.votes += 1
         selected_choise.save()
+        new_record = Record.objects.create(poll=poll,user=user)
+        new_record.save()
         return HttpResponseRedirect(reverse('users.views.results',args=(poll.id,)))
     
 def polls(request):
@@ -75,5 +82,5 @@ def detail(request,poll_id):
 
 def results(request,poll_id):
     poll = get_object_or_404(Poll,pk=poll_id)
-    #polls = Poll.objects.order_by('-pub_date')[:20]
-    return render_to_response("vote_result.html",{'poll':poll},context_instance=RequestContext(request))
+    polls = Poll.objects.order_by('-pub_date')[:20]
+    return render_to_response("vote_result.html",{'poll':poll,'polls':polls},context_instance=RequestContext(request))

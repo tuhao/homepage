@@ -2,7 +2,7 @@
 {%block title%}regist{%endblock%}
 {%block content%}
 <div class="container">
-      <form class="form-signin" action="/account/regist/" method="post">
+      <form class="form-signin" action="/accounts/regist/" method="post">
         {%csrf_token %}
         
         <h2 class="form-signin-heading">Please regist</h2>
@@ -11,7 +11,7 @@
         <input type="password" name="password" placeholder="Password"/><br/>
         <input type="password" name="confirmPwd" placeholder="Comfirm Password"/><br/>
         <button class="btn btn-large btn-primary" type="submit">Submit</button>
-	<input type="button" class="btn btn-large" onclick="window.location.href='/account/login'" value="Back"/>
+	<input type="button" class="btn btn-large" onclick="window.location.href='/accounts/login'" value="Back"/>
       </form>
 {%if message %}
         <div class="alert alert-error">

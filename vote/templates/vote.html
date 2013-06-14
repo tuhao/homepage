@@ -5,7 +5,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
 	     {%for poll in polls%} 
-              <li><a href="poll/{{poll.id}}/">{{poll.question}}</a></li>
+              <li><a href="/poll/{{poll.id}}/">{{poll.question}}</a></li>
               {%endfor%}
             </ul>
 </div><!--/.well -->

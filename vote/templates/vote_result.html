@@ -3,11 +3,35 @@
 {%block sidebar%}
 {%endblock%}
 {%block content%}
+
+<link href="/charts/prettify.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/charts/jquery.min.js"></script>
+<script type="text/javascript" src="/charts/FusionCharts.js"></script>
+<script type="text/javascript" src="/charts/prettify.js"></script>
+<script type="text/javascript" src="/charts/json2.js"></script>
+<script type="text/javascript" src="/charts/lib.js" ></script>
+
+<div id="chartdiv" align="left">Chart will load here</div>
+<script type="text/javascript">
+  window.onload = changeActive(1);
+
+    var dataString='<chart caption="Airline Delay Causes" showPercentageInLabel="1" showValues="1" showLabels="0" showLegend="1" showPercentValues="1">';
+    {%for choise in poll.choise_set.all%}
+    dataString += '<set value="{{choise.votes}}" label="{{choise.choise_text}}"/>';
+    {%endfor%}
+    dataString += '</chart>';
+  if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER);
+  var chart = new FusionCharts("/charts/Pie2D.swf","ChartId","560","400","0","0");
+  chart.setXMLData(dataString);
+  chart.render("chartdiv");
+</script>
 <ul>
 {%for choise in poll.choise_set.all %}
 <li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
 {%endfor%}
 </ul>
+
+
 {%endblock%}
 {%block footer%}
 {%endblock%}

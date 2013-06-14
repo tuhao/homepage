@@ -17,13 +17,14 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^$',login),    
-    url(r'^account/login/$',login),
-    url(r'^account/logout/$',logout),
-    url(r'^account/regist/$',regist),
+    url(r'^accounts/login/$',login),
+    url(r'^accounts/logout/$',logout),
+    url(r'^accounts/regist/$',regist),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^vote/',include('users.urls')),
 
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/css'}),
     url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/js'}),
+    url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/charts'}),
 )
