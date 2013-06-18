@@ -30,7 +30,13 @@
 <li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
 {%endfor%}
 </ul>
-
+<table class="table">
+{%for record in poll_records%}
+<tr>
+<td>{{record.user.username}} has voted to {{record.choise.choise_text}}</td>
+</tr>
+{%endfor%}
+</table>
 
 {%endblock%}
 {%block footer%}

@@ -24,3 +24,4 @@ class Choise(models.Model):
 class Record(models.Model):
     poll = models.ForeignKey(Poll)
     user = models.ForeignKey(User)
+    choise = models.ForeignKey(Choise)

@@ -57,17 +57,17 @@ def vote(request,poll_id):
     polls = Poll.objects.order_by('-pub_date')[0:20] 
     user = request.session.get("user",None)
     poll = get_object_or_404(Poll,pk=poll_id)
-    poll_record = Record.objects.filter(user=user,poll=poll)
-    if poll_record:
-        return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You had already made a choise'},context_instance=RequestContext(request))
     try:
         selected_choise = poll.choise_set.get(id=request.POST['choise'])
     except (KeyError,Choise.DoesNotExist):
         return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You must select a choise'},context_instance=RequestContext(request))
     else:
+        poll_record = Record.objects.filter(user=user,poll=poll)
+        if poll_record:
+            return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You had already made a choise'},context_instance=RequestContext(request))
         selected_choise.votes += 1
         selected_choise.save()
-        new_record = Record.objects.create(poll=poll,user=user)
+        new_record = Record.objects.create(poll=poll,user=user,choise=selected_choise)
         new_record.save()
         return HttpResponseRedirect(reverse('users.views.results',args=(poll.id,)))
     
@@ -82,5 +82,5 @@ def detail(request,poll_id):
 
 def results(request,poll_id):
     poll = get_object_or_404(Poll,pk=poll_id)
-    polls = Poll.objects.order_by('-pub_date')[:20]
-    return render_to_response("vote_result.html",{'poll':poll,'polls':polls},context_instance=RequestContext(request))
+    poll_records = Record.objects.filter(poll=poll)
+    return render_to_response("vote_result.html",{'poll':poll,'poll_records':poll_records},context_instance=RequestContext(request))
