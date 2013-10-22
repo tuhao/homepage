@@ -1,0 +1,5 @@
+{%extends "base_index.html"%}
+{%block title%}Page unavaliable{%%endblock}
+{%block sidebar%}{%endblock%}
+{%block content%}The requested Page is unavaliable due to a server hiccup{%endblock%}
+{%block footer%}{%endblock%}

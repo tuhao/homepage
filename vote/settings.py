@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('ikfly', '124915122@qq.com'),
     )
 
 MANAGERS = ADMINS
@@ -16,7 +16,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'root',
         'PASSWORD': 'pass123',
-        'HOST': '192.168.0.2',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '192.168.1.101',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
