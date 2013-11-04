@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+def index(request):
+    return render_to_response('index.html')
 
 def login(request):
     username = ''
@@ -60,11 +62,13 @@ def vote(request,poll_id):
     try:
         selected_choise = poll.choise_set.get(id=request.POST['choise'])
     except (KeyError,Choise.DoesNotExist):
-        return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You must select a choise'},context_instance=RequestContext(request))
+        error = 'You must select a choise'
+        return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
     else:
         poll_record = Record.objects.filter(user=user,poll=poll)
         if poll_record:
-            return render_to_response("vote_detail.html",{'poll':poll,'polls':polls,'error':'You had already made a choise'},context_instance=RequestContext(request))
+            error = 'You had already made a choise'
+            return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
         selected_choise.votes += 1
         selected_choise.save()
         new_record = Record.objects.create(poll=poll,user=user,choise=selected_choise)
