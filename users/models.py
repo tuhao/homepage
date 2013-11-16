@@ -25,3 +25,9 @@ class Record(models.Model):
     poll = models.ForeignKey(Poll)
     user = models.ForeignKey(User)
     choise = models.ForeignKey(Choise)
+
+class Blog(models.Model):
+    title = models.CharField(max_length=100)
+    pub_date = models.DateTimeField('date published')
+    content = models.TextField(u'Blog',max_length=10000,default='',blank=True)
+

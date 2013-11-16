@@ -1,0 +1,43 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<!-- Place inside the <head> of your HTML -->
+<script type="text/javascript" src="/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinyMCE.init({
+    //selector: "textarea"
+    mode : "textareas",
+                                 
+    theme : "modern",
+                                 
+    width: '780px',
+                                 
+    //language: 'zh-cn',
+                                 
+    plugins: [
+                                 
+        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+                                 
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                                 
+        "table contextmenu directionality emoticons template textcolor paste fullpage textcolor"
+                                 
+    ],
+                                 
+    menubar: false,
+                                 
+    toolbar_items_size: 'small',
+                                 
+    toolbar1: "undo redo | bold italic underline strikethrough forecolor backcolor | alignleft aligncenter alignright | bullist blockquote link unlink code | pagebreak preview fullscreen | fontselect fontsizeselect",
+                                 
+    content_css : '/tinymce/skins/custom/custom.css'
+ });
+</script>
+
+<!-- Place this in the body of the page content -->
+<form method="post">
+    <textarea></textarea>
+</form>
+
+</head>
+
+</html>

@@ -13,6 +13,9 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+def tinymce(request):
+    return render_to_response('tinymce.html')
+
 def index(request):
     return render_to_response('index.html')
 
