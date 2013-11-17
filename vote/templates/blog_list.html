@@ -5,24 +5,23 @@
 <div class="span3 well bs-docs-sidebar affix">
         <ul class="nav nav-list bs-docs-sidenav">
           <li class="nav-header">Classified</li>
-          <li id="li_0"><a href="{%url 'blog.views.blogs'  %}">All</a></li>
+          <li id="li_0"><a href="{%url 'blog.views.blogs'%}">All
+            ({{blog_total}})</a></li>
           {%for sort in sorts%}
-          {%if sort.blog_count > 0%}
           <li id="li_{{sort.id}}">
           <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}}
            ({{sort.blog_count}})</a>
           </li>
-          {%endif%}
           {%endfor%}
         </ul>
         <div class="pagination"> 
-          <ul><li><a href="#">Prev</a></li>
-                <li><a href="#">Next</a></li>
+          <ul><li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
+                <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
           </ul>
         </div>
 
         <ul class="nav nav-list bs-docs-sidenav">
-         <li class="nav-header">Blogs</li>
+         <li class="nav-header">Blogs of {{sort.name|default:"All"}} </li>
           {%for blog in blogs%}
           <li>
           <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:23}}</a>
@@ -31,8 +30,8 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-          <ul><li><a href="#">Prev</a></li>
-                <li><a href="#">Next</a></li>
+          <ul><li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a></li>
+                <li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:1 %}">Next</a></li>
           </ul>
         </div>
         
