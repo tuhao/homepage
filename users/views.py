@@ -9,13 +9,9 @@ from users.forms import RegistForm
 from users.models import *
 from django.contrib.auth.decorators import login_required
 
-from django.db.models import Count
-#from django.contrib.auth.forms import UserCreationForm
+from users.blog import *
 
 # Create your views here.
-
-def tinymce(request):
-    return render_to_response('tinymce.html')
 
 def index(request):
     return render_to_response('index.html')
@@ -59,9 +55,11 @@ def regist(request):
     return render_to_response("regist.html",context_instance=RequestContext(request))
 
 @login_required
-def vote(request,poll_id,page):
+def vote(request,poll_id,page=1):
     polls = Poll.objects.order_by('-pub_date')[page-1:page-1+20] 
     user = request.session.get("user",None)
+    if user is None:
+        return HttpResponseRedirect(reverse('users.views.login'))
     poll = get_object_or_404(Poll,pk=poll_id)
     try:
         selected_choise = poll.choise_set.get(id=request.POST['choise'])
@@ -92,20 +90,3 @@ def results(request,poll_id):
     poll_records = Record.objects.filter(poll=poll)
     return render_to_response("vote_result.html",locals(),context_instance=RequestContext(request))
 
-#blog
-
-def blogs(request,blog_page=1,sort_page=1):
-    blogs = Blog.objects.order_by('pub_date')[blog_page-1:blog_page-1+20]
-    sorts = BlogSort.objects.annotate(blog_count=Count('blog')).order_by('id')[sort_page-1:sort_page-1+20]
-    return render_to_response("blog_list.html",locals(),context_instance=RequestContext(request))
-
-def blog_detail(request,blog_id):
-    blog = get_object_or_404(Blog,pk=blog_id)
-    return render_to_response("blog_detail.html",locals(),context_instance=RequestContext(request))
-
-def sort_blogs(request,sort_id,page=1):
-    sorts = BlogSort.objects.annotate(blog_count=Count('blog')).order_by('id')[page-1:page-1+20]
-    sort = get_object_or_404(BlogSort,pk=sort_id)
-    blogs = Blog.objects.filter(sort=sort)[page-1:page-1+20]
-
-    return render_to_response("blog_sort.html",locals(),context_instance=RequestContext(request))

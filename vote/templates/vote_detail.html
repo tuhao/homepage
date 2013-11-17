@@ -5,7 +5,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Questions</li>
 	     {%for poll in polls%} 
-              <li><a href="/vote/poll/{{poll.id}}/">{{poll.question}}</a></li>
+              <li><a href="{%url 'users.views.poll_detail' poll.id %}">{{poll.question}}</a></li>
               {%endfor%}
             </ul>
 </div><!--/.well -->
@@ -25,7 +25,7 @@ function choose(id){
 }
 </script>
 {%if poll%}
-<form action="/vote/{{poll.id}}/vote/" method="post">
+<form action="{%url 'users.views.vote' poll.id%}" method="post">
 {%csrf_token %}
 
 <table class="table">
@@ -48,7 +48,7 @@ function choose(id){
 <tr>
 <td>
 <button type="submit" class="btn btn-large btn-primary">Vote</button>
-<input type="button" class="btn btn-large" value="Result" onclick="window.location.href='/vote/{{poll.id}}/results'"/>
+<input type="button" class="btn btn-large" value="Result" onclick="window.location.href='{%url 'users.views.results' poll.id %}'"/>
 </td>
 </tr>
 <tr>

@@ -8,7 +8,7 @@
           {%for sort in sorts%}
           {%if sort.blog_count > 0%}
           <li>
-          <a href="/sort/{{sort.id}}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})</a>
+          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})</a>
           </li>
           {%endif%}
           {%endfor%}
@@ -51,7 +51,9 @@
   <div class="hero-unit">
     <div class="page-header">
     
-    <h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
+    <h2>
+      <a href="{%url 'blog.views.blog_detail' blog.id%}">{{blog.title}}</a>
+      </h2>
 
     <p>{{blog.pub_date}}</p>    
       {{blog.content|striptags|nbsp|safe|truncatechars:300}}

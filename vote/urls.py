@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from users.views import *
+from blog.views import *
 import os.path
 
 admin.autodiscover()
@@ -16,20 +17,23 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+    
+    #account
     url(r'^$',index),    
     url(r'^accounts/login/$',login),
     url(r'^accounts/logout/$',logout),
     url(r'^accounts/regist/$',regist),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^vote/',include('users.urls')),
     
-    #blog
-    url(r'^blogs/$',blogs), 
-    url(r'^blog/(\d+)/$',blog_detail),
-    url(r'^sort/(\d+)/$',sort_blogs),
-    #tinymce
-    url(r'^richtext/$',tinymce),
+    #admin
+    url(r'^admin/', include(admin.site.urls)),
+    
+    #vote
+    url(r'^vote/',include('users.urls')),
 
+    #blog
+    url(r'^blogs/',include('blog.urls')),
+    
+    #static
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
     url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/js'}),
     url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/charts'}),
