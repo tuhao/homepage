@@ -2,50 +2,47 @@
 {%block title%}index{%endblock%}
 {%block sidebar%}
 
-<div class="span12 bs-docs-sidebar well sidebar-nav" >
-        <ul class="nav nav-list bs-docs-sidenav affix-top">
-           <li class="nav-header">Classified
+<div class="span3 well bs-docs-sidebar affix">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li class="nav-header">Classified</li>
+          <li id="li_0"><a href="{%url 'blog.views.blogs'  %}">All</a></li>
           {%for sort in sorts%}
           {%if sort.blog_count > 0%}
           <li id="li_{{sort.id}}">
-          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})
-          </a>
+          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}}
+           ({{sort.blog_count}})</a>
           </li>
           {%endif%}
           {%endfor%}
-        </li>
-      </ul>
-</div>
-   <div class="pagination">
-        <ul>
-          <li><a href="/blogs/{{prev}}">Prev</a></li>
-          <li><a href="/blogs/{{next}}">Next</a></li>
         </ul>
-      </div>
+        <div class="pagination"> 
+          <ul><li><a href="#">Prev</a></li>
+                <li><a href="#">Next</a></li>
+          </ul>
+        </div>
 
-<div class="span12 bs-docs-sidebar well sidebar-nav" >
-        <ul class="nav nav-list bs-docs-sidenav affix-top">
-           <li class="nav-header">Blogs
+        <ul class="nav nav-list bs-docs-sidenav">
+         <li class="nav-header">Blogs</li>
           {%for blog in blogs%}
-         
           <li>
-          <a href="{%url 'blog.views.blog_detail' blog.id%}">{{blog.title|truncatechars:30|ljust:30}}</a>
+          <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:23}}</a>
+          <!--{%url 'blog.views.blog_detail' blog.id%}-->
           </li>
           {%endfor%}
-        </li>
-      </ul>
-</div>
-   <div class="pagination">
-        <ul>
-          <li><a href="/blogs/{{prev}}">Prev</a></li>
-          <li><a href="/blogs/{{next}}">Next</a></li>
         </ul>
-      </div>
-
+        <div class="pagination"> 
+          <ul><li><a href="#">Prev</a></li>
+                <li><a href="#">Next</a></li>
+          </ul>
+        </div>
+        
+ </div>
 
 {%endblock%}
 {%block content%}
-
+<script type="text/javascript">
+    $(document).ready(changeLiActive(0));
+</script>
 {%load nbsp%}
 {%for blog in blogs%}
 <section id="blog_{{blog.id}}">
