@@ -95,11 +95,22 @@ def results(request,poll_id):
 
 #blog
 
-def blogs(request,page=1):
-    blogs = Blog.objects.order_by('pub_date')[page-1:page-1+20]
+def blogs(request,blog_page=1,sort_page=1):
+    blogs = Blog.objects.order_by('pub_date')[blog_page-1:blog_page-1+20]
+    sorts = BlogSort.objects.order_by('id')[sort_page-1:sort_page-1+20]
+    for sort in sorts:
+        sort.count = Blog.objects.filter(sort_id=sort.id).count()
     return render_to_response("blog_list.html",locals(),context_instance=RequestContext(request))
 
 def blog_detail(request,blog_id):
     blog = get_object_or_404(Blog,pk=blog_id)
     return render_to_response("blog_detail.html",locals(),context_instance=RequestContext(request))
 
+def sort_blogs(request,sort_id,page=1):
+    sorts = BlogSort.objects.order_by('id')[page-1:page-1+20]
+    for sort in sorts:
+        sort.count = Blog.objects.filter(sort_id=sort.id).count()
+    sort = get_object_or_404(BlogSort,pk=sort_id)
+    blogs = Blog.objects.filter(sort=sort)[page-1:page-1+20]
+
+    return render_to_response("blog_sort.html",locals(),context_instance=RequestContext(request))

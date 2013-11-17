@@ -4,11 +4,31 @@
 
 <div class="span12 bs-docs-sidebar well sidebar-nav" >
         <ul class="nav nav-list bs-docs-sidenav affix-top">
+           <li class="nav-header">Classified
+          {%for sort in sorts%}
+          {%if sort.count > 0%}
+          <li>
+          <a href="/sort/{{sort.id}}">{{sort.name|truncatechars:30}} ({{sort.count}})</a>
+          </li>
+          {%endif%}
+          {%endfor%}
+        </li>
+      </ul>
+</div>
+   <div class="pagination">
+        <ul>
+          <li><a href="/blogs/{{prev}}">Prev</a></li>
+          <li><a href="/blogs/{{next}}">Next</a></li>
+        </ul>
+      </div>
+
+<div class="span12 bs-docs-sidebar well sidebar-nav" >
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
            <li class="nav-header">Blogs
           {%for blog in blogs%}
          
           <li>
-          <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:30}}</a>
+          <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:30|ljust:30}}</a>
           </li>
           {%endfor%}
         </li>
@@ -20,6 +40,7 @@
           <li><a href="/blogs/{{next}}">Next</a></li>
         </ul>
       </div>
+
 
 {%endblock%}
 {%block content%}

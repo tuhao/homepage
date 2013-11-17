@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     #blog
     url(r'^blogs/$',blogs), 
     url(r'^blog/(\d+)/$',blog_detail),
+    url(r'^sort/(\d+)/$',sort_blogs),
     #tinymce
     url(r'^richtext/$',tinymce),
 

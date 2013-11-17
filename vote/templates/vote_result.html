@@ -13,8 +13,8 @@
 
 <div id="chartdiv" align="left">Chart will load here</div>
 <script type="text/javascript">
-  window.onload = changeActive(1);
-
+  window.onload = changeActive(2);
+    
     var dataString='<chart caption="Airline Delay Causes" showPercentageInLabel="1" showValues="1" showLabels="0" showLegend="1" showPercentValues="1">';
     {%for choise in poll.choise_set.all%}
     dataString += '<set value="{{choise.votes}}" label="{{choise.choise_text}}"/>';
