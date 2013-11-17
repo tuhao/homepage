@@ -23,8 +23,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^vote/',include('users.urls')),
     
+    #blog
+    url(r'^blogs/$',blogs), 
+    url(r'^blog/(\d+)/$',blog_detail),
     #tinymce
     url(r'^richtext/$',tinymce),
+
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
     url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/js'}),
     url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/charts'}),

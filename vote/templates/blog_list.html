@@ -1,0 +1,44 @@
+{%extends "base_index.html"%}
+{%block title%}index{%endblock%}
+{%block sidebar%}
+
+<div class="span12 bs-docs-sidebar well sidebar-nav" >
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
+           <li class="nav-header">Blogs
+          {%for blog in blogs%}
+          <li><a href="#blog_{{blog.id}}"><li class="icon-chevron-right"></li> 
+            {{blog.title|truncatechars:20}}</a></li>
+          {%endfor%}
+        </li>
+      </ul>
+</div>
+   <div class="pagination">
+        <ul>
+          <li><a href="/blogs/{{prev}}">Prev</a></li>
+          <li><a href="/blogs/{{next}}">Next</a></li>
+        </ul>
+      </div>
+
+{%endblock%}
+{%block content%}
+
+{%for blog in blogs%}
+<section id="blog_{{blog.id}}">
+  <div class="hero-unit">
+    <div class="page-header">
+    <h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
+    <p>{{blog.pub_date}}</p>
+      {{blog.content|striptags|truncatechars:300}}
+    </div>
+</div>
+</section>
+<!--<div class="hero-unit">
+	<h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
+		  <p>{{blog.pub_date}}</p>
+            <p>{{blog.brief}}</p>
+            <p><a href="##" class="btn btn-primary btn-large">Learn more »</a></p>
+      </div>
+    -->
+{%endfor%}
+{%endblock%}
+{%block footer%}{%endblock%}

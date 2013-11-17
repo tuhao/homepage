@@ -1,4 +1,4 @@
-{%extends "vote.html"%}
+{%extends "base_index.html"%}
 {%block title%}vote{%endblock%}
 {%block sidebar%}
 <div class="well sidebar-nav">
@@ -23,10 +23,12 @@ function choose(id){
     document.getElementById(id).checked = true;
 }
 
-window.onload = changeActive(1);
+window.onload = changeActive(2);
 </script>
+{%if poll%}
 <form action="/vote/{{poll.id}}/vote/" method="post">
 {%csrf_token %}
+
 <table class="table">
 <tr>
 <td>
@@ -57,5 +59,7 @@ window.onload = changeActive(1);
 </tr>
 </table>
 </form>
+{%endif%}
+
 {%endblock%}
 {%block footer%}{%endblock%}

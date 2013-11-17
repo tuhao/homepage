@@ -1,0 +1,707 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"blog",
+				"blog_id"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"docume",
+				"document_root"
+			],
+			[
+				"aja",
+				"ÄúµÄä¯ÀÀÆ÷²»Ö§³ÖAJAX£¡"
+			],
+			[
+				"XML",
+				"XMLHTTP"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/yasir/Django/homepage/vote/urls.py",
+			"settings":
+			{
+				"buffer_size": 1356,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/yasir/Django/homepage/vote/static/css/bootstrap.min.css",
+			"settings":
+			{
+				"buffer_size": 106015,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "base_index.html",
+			"settings":
+			{
+				"buffer_size": 5083,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vote.html",
+			"settings":
+			{
+				"buffer_size": 471,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vote_detail.html",
+			"settings":
+			{
+				"buffer_size": 1425,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/yasir/Django/homepage/users/views.py",
+			"settings":
+			{
+				"buffer_size": 4388,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tinymce.html",
+			"settings":
+			{
+				"buffer_size": 1587,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vote_result.html",
+			"settings":
+			{
+				"buffer_size": 1581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/yasir/Django/homepage/users/models.py",
+			"settings":
+			{
+				"buffer_size": 1082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/yasir/Django/homepage/users/urls.py",
+			"settings":
+			{
+				"buffer_size": 643,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"save",
+				"File: Save All"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/yasir/Django/homepage/vote/templates/blog_list.html",
+		"/home/yasir/Django/homepage/users/__init__.py",
+		"/home/yasir/Django/homepage/vote/templates/top.html",
+		"/home/yasir/Django/personal_homepage/vote/static/tinymce/config.js",
+		"/home/yasir/goagent-goagent-2ca470c/local/proxy.ini",
+		"/home/yasir/blog/wp-settings.php",
+		"/home/yasir/wordpress/wp-config.php",
+		"/home/yasir/js/jquery/untitled.html",
+		"/home/ikfly/Django/mysite/mysite/settings.py",
+		"/home/ikfly/下载/test.html",
+		"/home/ikfly/python/days.py",
+		"/home/ikfly/python/#lession_9.2.py#"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Home",
+			"block",
+			"changeActive",
+			"ajaxF",
+			"\",\n",
+			"\",",
+			"\n\"",
+			"\",",
+			"names",
+			"names\n   \n   [i",
+			"names\n   \n   [",
+			"\n   \n   ",
+			"   \n",
+			"names",
+			"for",
+			"\n        ",
+			":\n",
+			"\n    "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/yasir/Django/homepage/vote/urls.py",
+					"settings":
+					{
+						"buffer_size": 1356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1356,
+								1356
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 124.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/yasir/Django/homepage/vote/static/css/bootstrap.min.css",
+					"settings":
+					{
+						"buffer_size": 106015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "base_index.html",
+					"settings":
+					{
+						"buffer_size": 5083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3489,
+								3489
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1980.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vote.html",
+					"settings":
+					{
+						"buffer_size": 471,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								236,
+								236
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "vote_detail.html",
+					"settings":
+					{
+						"buffer_size": 1425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1365,
+								1365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/yasir/Django/homepage/users/views.py",
+					"settings":
+					{
+						"buffer_size": 4388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4107,
+								4107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1624.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "tinymce.html",
+					"settings":
+					{
+						"buffer_size": 1587,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "vote_result.html",
+					"settings":
+					{
+						"buffer_size": 1581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/yasir/Django/homepage/users/models.py",
+					"settings":
+					{
+						"buffer_size": 1082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								757,
+								757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/yasir/Django/homepage/users/urls.py",
+					"settings":
+					{
+						"buffer_size": 643,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"inde",
+				"vote/templates/index.html"
+			],
+			[
+				"blo",
+				"vote/templates/blog_list.html"
+			],
+			[
+				"",
+				"users/views.py"
+			],
+			[
+				"ur",
+				"users/urls.py"
+			],
+			[
+				"vi",
+				"users/views.py"
+			],
+			[
+				"vote",
+				"vote/templates/vote.html"
+			],
+			[
+				"view",
+				"users/views.py"
+			],
+			[
+				"url",
+				"users/urls.py"
+			],
+			[
+				"mode",
+				"users/models.py"
+			],
+			[
+				"index",
+				"vote/templates/index.html"
+			],
+			[
+				"base",
+				"vote/templates/base_index.html"
+			],
+			[
+				"vote_re",
+				"vote/templates/vote_result.html"
+			],
+			[
+				"ti",
+				"vote/templates/tinymce.html"
+			],
+			[
+				"bas",
+				"vote/templates/base_index.html"
+			],
+			[
+				"vote_",
+				"vote/templates/vote_detail.html"
+			],
+			[
+				"top",
+				"vote/templates/top.html"
+			],
+			[
+				"bott",
+				"vote/static/css/bootstrap.min.css"
+			],
+			[
+				"con",
+				"vote/static/tinymce/config.js"
+			],
+			[
+				"admin",
+				"users/admin.py"
+			],
+			[
+				"mo",
+				"users/models.py"
+			],
+			[
+				"confi",
+				"vote/static/tinymce/config.js"
+			],
+			[
+				"config",
+				"/home/yasir/Django/personal_homepage/vote/static/tinymce/config.js"
+			],
+			[
+				"tin",
+				"vote/templates/tinymce.html"
+			],
+			[
+				"ad",
+				"users/admin.py"
+			],
+			[
+				"model",
+				"users/models.py"
+			],
+			[
+				"sett",
+				"vote/settings.py"
+			],
+			[
+				"base_index",
+				"vote/templates/base_index.html"
+			],
+			[
+				"setti",
+				"vote/settings.py"
+			],
+			[
+				"vote_detal",
+				"vote/templates/vote_detail.html"
+			],
+			[
+				"urls",
+				"users/urls.py"
+			],
+			[
+				"form",
+				"users/forms.py"
+			],
+			[
+				"set",
+				"vote/settings.py"
+			],
+			[
+				"se",
+				"vote/settings.py"
+			],
+			[
+				"login",
+				"vote/templates/login.html"
+			],
+			[
+				"setting",
+				"mysite/mysite/settings.py"
+			],
+			[
+				"test.ht",
+				"/home/ikfly/下载/test.html"
+			],
+			[
+				"te",
+				"test.py"
+			],
+			[
+				"lession",
+				"lession_8.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true
+}

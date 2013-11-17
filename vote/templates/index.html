@@ -1,5 +1,22 @@
 {%extends "base_index.html"%}
 {%block title%}index{%endblock%}
 {%block sidebar%}{%endblock%}
+{%block content%}
 
+{%for blog in blogs%}
+<div class="hero-unit">
+	<h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
+		  <p>{{blog.pub_date}}</p>
+            <p>{{blog.brief}}</p>
+            <p><a href="##" class="btn btn-primary btn-large">Learn more »</a></p>
+      </div>
+{%endfor%}
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="##">View details »</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+{%endblock%}
 {%block footer%}{%endblock%}

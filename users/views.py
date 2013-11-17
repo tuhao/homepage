@@ -9,6 +9,7 @@ from users.forms import RegistForm
 from users.models import *
 from django.contrib.auth.decorators import login_required
 
+import re
 #from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
@@ -58,8 +59,8 @@ def regist(request):
     return render_to_response("regist.html",context_instance=RequestContext(request))
 
 @login_required
-def vote(request,poll_id):
-    polls = Poll.objects.order_by('-pub_date')[0:20] 
+def vote(request,poll_id,page):
+    polls = Poll.objects.order_by('-pub_date')[page-1:page-1+20] 
     user = request.session.get("user",None)
     poll = get_object_or_404(Poll,pk=poll_id)
     try:
@@ -80,14 +81,25 @@ def vote(request,poll_id):
     
 def polls(request):
     polls = Poll.objects.order_by('-pub_date')[0:20]
-    return render_to_response("vote_detail.html",{'polls':polls},context_instance=RequestContext(request))
+    return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
 
-def detail(request,poll_id):
+def poll_detail(request,poll_id):
     polls = Poll.objects.order_by('-pub_date')[0:20]
     poll = get_object_or_404(Poll,pk=poll_id)
-    return render_to_response("vote_detail.html",{'polls':polls,'poll':poll},context_instance=RequestContext(request))
+    return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
 
 def results(request,poll_id):
     poll = get_object_or_404(Poll,pk=poll_id)
     poll_records = Record.objects.filter(poll=poll)
-    return render_to_response("vote_result.html",{'poll':poll,'poll_records':poll_records},context_instance=RequestContext(request))
+    return render_to_response("vote_result.html",locals(),context_instance=RequestContext(request))
+
+#blog
+
+def blogs(request,page=1):
+    blogs = Blog.objects.order_by('pub_date')[page-1:page-1+20]
+    return render_to_response("blog_list.html",locals(),context_instance=RequestContext(request))
+
+def blog_detail(request,blog_id):
+    blog = get_object_or_404(Blog,pk=blog_id)
+    return render_to_response("blog_detail.html",locals(),context_instance=RequestContext(request))
+

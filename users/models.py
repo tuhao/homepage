@@ -28,6 +28,9 @@ class Record(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=100)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published',auto_now_add=True)
     content = models.TextField(u'Blog',max_length=10000,default='',blank=True)
+
+    #def __unicode__(self):
+    #   return self.content
 
