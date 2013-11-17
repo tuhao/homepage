@@ -27,16 +27,12 @@
         }
       }
     </style>
+    <script type="text/javascript" src="/js/jQuery-v1.10.2.js"></script>
     <script type="text/javascript">
       function changeActive(index){
-      var ul = document.getElementById("nav-div").getElementsByTagName("ul")[0].getElementsByTagName("li");
-      for(var i =0;i < ul.length;i++){
-          if(index == i){
-	      ul[i].className="active";
-	  }else{
-	      ul[i].className="";
-	  }
-       }
+         var uls = $("#nav-div ul li");
+         uls.attr('class','');
+         uls.eq(index).attr('class','active');
      }
     </script>
     <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -131,6 +127,7 @@
 {%endblock%}
 
     </div>
+
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 <!--/.fluid-container-->

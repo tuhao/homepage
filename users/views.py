@@ -9,7 +9,7 @@ from users.forms import RegistForm
 from users.models import *
 from django.contrib.auth.decorators import login_required
 
-import re
+from django.db.models import Count
 #from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
@@ -79,13 +79,12 @@ def vote(request,poll_id,page):
         new_record.save()
         return HttpResponseRedirect(reverse('users.views.results',args=(poll.id,)))
     
-def polls(request):
-    polls = Poll.objects.order_by('-pub_date')[0:20]
-    return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
-
-def poll_detail(request,poll_id):
-    polls = Poll.objects.order_by('-pub_date')[0:20]
-    poll = get_object_or_404(Poll,pk=poll_id)
+def poll_detail(request,poll_id=1,page=1):
+    polls = Poll.objects.order_by('-pub_date')[page-1:page-1+20]
+    try:
+        poll = get_object_or_404(Poll,pk=poll_id)
+    except Exception, e:
+        pass
     return render_to_response("vote_detail.html",locals(),context_instance=RequestContext(request))
 
 def results(request,poll_id):
@@ -97,9 +96,7 @@ def results(request,poll_id):
 
 def blogs(request,blog_page=1,sort_page=1):
     blogs = Blog.objects.order_by('pub_date')[blog_page-1:blog_page-1+20]
-    sorts = BlogSort.objects.order_by('id')[sort_page-1:sort_page-1+20]
-    for sort in sorts:
-        sort.count = Blog.objects.filter(sort_id=sort.id).count()
+    sorts = BlogSort.objects.annotate(blog_count=Count('blog')).order_by('id')[sort_page-1:sort_page-1+20]
     return render_to_response("blog_list.html",locals(),context_instance=RequestContext(request))
 
 def blog_detail(request,blog_id):
@@ -107,9 +104,7 @@ def blog_detail(request,blog_id):
     return render_to_response("blog_detail.html",locals(),context_instance=RequestContext(request))
 
 def sort_blogs(request,sort_id,page=1):
-    sorts = BlogSort.objects.order_by('id')[page-1:page-1+20]
-    for sort in sorts:
-        sort.count = Blog.objects.filter(sort_id=sort.id).count()
+    sorts = BlogSort.objects.annotate(blog_count=Count('blog')).order_by('id')[page-1:page-1+20]
     sort = get_object_or_404(BlogSort,pk=sort_id)
     blogs = Blog.objects.filter(sort=sort)[page-1:page-1+20]
 

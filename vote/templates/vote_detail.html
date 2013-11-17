@@ -19,11 +19,10 @@
 {%endblock%}
 {%block content%}
 <script type="text/javascript">
+$(document).ready(changeActive(1));
 function choose(id){
     document.getElementById(id).checked = true;
 }
-
-window.onload = changeActive(2);
 </script>
 {%if poll%}
 <form action="/vote/{{poll.id}}/vote/" method="post">

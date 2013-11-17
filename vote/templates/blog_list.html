@@ -6,9 +6,9 @@
         <ul class="nav nav-list bs-docs-sidenav affix-top">
            <li class="nav-header">Classified
           {%for sort in sorts%}
-          {%if sort.count > 0%}
+          {%if sort.blog_count > 0%}
           <li>
-          <a href="/sort/{{sort.id}}">{{sort.name|truncatechars:30}} ({{sort.count}})</a>
+          <a href="/sort/{{sort.id}}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})</a>
           </li>
           {%endif%}
           {%endfor%}

@@ -16,7 +16,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     
-    url(r'^$',polls),
+    url(r'^$',poll_detail),
     url(r'^poll/(\d+)/$',poll_detail),
     url(r'^(?P<poll_id>\d+)/results/$',results),
     url(r'^(?P<poll_id>\d+)/vote/$',vote),
