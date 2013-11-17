@@ -1,7 +1,9 @@
 {%extends "blog_list.html"%}
 {%block title%}index{%endblock%}
 {%block content%}
-
+<script type="text/javascript">
+    $(document).ready(changeLiActive({{sort.id}}));
+</script>
 {%load nbsp%}
 {%for blog in blogs%}
 <section id="blog_{{blog.id}}">

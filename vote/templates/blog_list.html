@@ -7,8 +7,9 @@
            <li class="nav-header">Classified
           {%for sort in sorts%}
           {%if sort.blog_count > 0%}
-          <li>
-          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})</a>
+          <li id="li_{{sort.id}}">
+          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}} ({{sort.blog_count}})
+          </a>
           </li>
           {%endif%}
           {%endfor%}
@@ -28,7 +29,7 @@
           {%for blog in blogs%}
          
           <li>
-          <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:30|ljust:30}}</a>
+          <a href="{%url 'blog.views.blog_detail' blog.id%}">{{blog.title|truncatechars:30|ljust:30}}</a>
           </li>
           {%endfor%}
         </li>

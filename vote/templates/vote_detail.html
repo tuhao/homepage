@@ -1,11 +1,12 @@
 {%extends "base_index.html"%}
 {%block title%}vote{%endblock%}
 {%block sidebar%}
+
 <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Questions</li>
 	     {%for poll in polls%} 
-              <li><a href="{%url 'users.views.poll_detail' poll.id %}">{{poll.question}}</a></li>
+              <li id="li_{{poll.id}}"><a href="{%url 'users.views.poll_detail' poll.id %}">{{poll.question}}</a></li>
               {%endfor%}
             </ul>
 </div><!--/.well -->
@@ -19,7 +20,10 @@
 {%endblock%}
 {%block content%}
 <script type="text/javascript">
-$(document).ready(changeActive(1));
+$(document).ready(function(){
+  changeActive(1)
+  changeLiActive({{poll.id}});
+});
 function choose(id){
     document.getElementById(id).checked = true;
 }
