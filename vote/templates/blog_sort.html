@@ -1,0 +1,21 @@
+{%extends "blog_list.html"%}
+{%block title%}index{%endblock%}
+{%block content%}
+
+{%load nbsp%}
+{%for blog in blogs%}
+<section id="blog_{{blog.id}}">
+  <div class="hero-unit">
+    <div class="page-header">
+    <h2><a href="{%url 'blog.views.blog_detail' blog.id %}">{{blog.title}}</a></h2>
+
+    <p>{{blog.pub_date}}</p>    
+      {{blog.content|striptags|nbsp|safe|truncatechars:300}}
+    </div>
+</div>
+</section>
+{%empty%}
+Empty
+{%endfor%}
+{%endblock%}
+{%block footer%}{%endblock%}
