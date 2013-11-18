@@ -2,6 +2,9 @@
 {%block title%}vote{%endblock%}
 {%block sidebar%}
 
+
+{% load pagination_tags %}
+{% autopaginate polls 10 %}
 <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Questions</li>
@@ -10,10 +13,9 @@
               {%endfor%}
             </ul>
 </div><!--/.well -->
-<div class="pagination">
- 
+<div class="pagination"> 
+	{%paginate%}
 </div>
-
 {%endblock%}
 {%block content%}
 <script type="text/javascript">
