@@ -15,7 +15,6 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-
           <ul><li>
         {%if sort_page <= 1 %}<a href="#">Prev</a>
         {%else%}
@@ -24,7 +23,6 @@
                 <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
           </ul>
         </div>
-
         <ul class="nav nav-list bs-docs-sidenav">
          <li class="nav-header">Blogs of {{sort.name|default:"All"}} </li>
           {%for blog in blogs%}
@@ -35,6 +33,7 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
+
           <ul><li>
              {%if blog_page <= 1 %}<a href="#">Prev</a>
         {%else%}
