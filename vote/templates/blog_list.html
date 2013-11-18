@@ -15,7 +15,12 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-          <ul><li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
+
+          <ul><li>
+        {%if sort_page <= 1 %}<a href="#">Prev</a>
+        {%else%}
+            <a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
+            {%endif%}
                 <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
           </ul>
         </div>
@@ -30,7 +35,11 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-          <ul><li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a></li>
+          <ul><li>
+             {%if blog_page <= 1 %}<a href="#">Prev</a>
+        {%else%}
+            <a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a></li>
+            {%endif%}
                 <li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:1 %}">Next</a></li>
           </ul>
         </div>

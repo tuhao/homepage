@@ -9,16 +9,16 @@ pagenum = 2
 
 
 def start_index(page):
-        return int(page) - 1
+    if page <= 0:
+        return 0
+    return (int(page) - 1) * pagenum
 
 
 def end_index(page):
-    return int(page) - 1 + pagenum
+    return int(page) * pagenum
 
 
 def blogs(request, sort_page=1, blog_page=1):
-    if sort_page == 0:
-    	assert False
     try:
         blogs = Blog.objects.order_by('pub_date')[
             start_index(blog_page):end_index(blog_page)]
