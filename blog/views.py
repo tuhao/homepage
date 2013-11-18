@@ -5,7 +5,7 @@ from django.template import RequestContext
 from blog.models import *
 from django.db.models import Count
 
-pagenum = 2
+pagenum = 10
 
 
 def start_index(page):

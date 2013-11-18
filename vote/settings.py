@@ -141,7 +141,11 @@ INSTALLED_APPS = (
     'users',
     'blog',
     'pagination',
+    'duoshuo',
 )
+DUOSHUO_SECRET = '9b387c2e73072572ebc65ffc74d22995'
+
+DUOSHUO_SHORT_NAME = 'yasir'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

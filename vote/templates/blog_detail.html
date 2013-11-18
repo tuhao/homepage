@@ -3,6 +3,11 @@
 {%block sidebar%}{%endblock%}
 {%block content%}
 
+
+{%load duoshuo_tags%}
+
+
+
  <div class="row-fluid">
               <h2>{{blog.title}}</h2>
               <p>{{blog.pub_date}}</p>
@@ -11,7 +16,9 @@
               	{{blog.content}}
               	{%endautoescape%}
                </p>
-               <p><a class="btn" href="##">View details »</a></p>
+               <p>{%duoshuo_comments 'yasir'%}
+
+               </p>
             
 </div><!--/row-->
 {%endblock%}
