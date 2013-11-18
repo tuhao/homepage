@@ -30,13 +30,21 @@
 <li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
 {%endfor%}
 </ul>
+{%load pagination_tags%}
+{%autopaginate poll_records 5%}
 <table class="table">
 {%for record in poll_records%}
 <tr>
-<td>{{record.user.username}} has voted to {{record.choise.choise_text}}</td>
+<td>{{record.ip|default:'visitor'|truncatechars:6|add:'.*.*'}}  has voted to {{record.choise.choise_text}}</td>
 </tr>
 {%endfor%}
 </table>
+{%paginate%}
+
+{%load duoshuo_tags%}
+<p>
+{%duoshuo_comments 'yasir'%}
+  </p>
 
 {%endblock%}
 {%block footer%}

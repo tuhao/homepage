@@ -32,7 +32,7 @@ def blogs(request, sort_page=1, blog_page=1):
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
-def blog_detail(request, blog_id):
+def blog_detail(request, blog_id, blog_page=1, sort_page=1):
     blog = get_object_or_404(Blog, pk=blog_id)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
