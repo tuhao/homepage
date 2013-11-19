@@ -3,32 +3,14 @@
 {%block sidebar%}
 
 <div class="span3 well bs-docs-sidebar affix">
-        <ul class="nav nav-list bs-docs-sidenav">
-          <li class="nav-header">Classified</li>
-          <li id="li_0"><a href="{%url 'blog.views.blogs'%}">All
-            ({{blog_total}})</a></li>
-          {%for sort in sorts%}
-          <li id="li_{{sort.id}}">
-          <a href="{%url 'blog.views.sort_blogs' sort.id %}">{{sort.name|truncatechars:30}}
-           ({{sort.blog_count}})</a>
-          </li>
-          {%endfor%}
-        </ul>
-        <div class="pagination"> 
-          <ul><li>
-        {%if sort_page <= 1 %}<a href="#">Prev</a>
-        {%else%}
-            <a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
-            {%endif%}
-                <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
-          </ul>
-        </div>
+
+   <!-- blogs begin-->
         <ul class="nav nav-list bs-docs-sidenav">
          <li class="nav-header">Blogs of {{sort.name|default:"All"}} </li>
           {%for blog in blogs%}
           <li>
-          <a href="#blog_{{blog.id}}">{{blog.title|truncatechars:23}}</a>
-          <!--{%url 'blog.views.blog_detail' blog.id%}-->
+            <a href="#blog_{{blog.id}}" onclick="window.location.href='{%url 'blog.views.blog_detail' sort_id=blog.sort.id blog_id=blog.id %}'">{{blog.title|truncatechars:23}}</a>
+         
           </li>
           {%endfor%}
         </ul>
@@ -42,6 +24,33 @@
                 <li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:1 %}">Next</a></li>
           </ul>
         </div>
+        <!--blogs end-->
+
+        <!--sorts begin-->
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li class="nav-header">Classified</li>
+          <li id="li_0"><a href="{%url 'blog.views.blogs'%}">All
+            ({{blog_total}})</a></li>
+          {%for sort in sorts%}
+          <li id="li_{{sort.id}}">
+          <a href="{%url 'blog.views.sort_blogs' sort_id=sort.id %}">{{sort.name|truncatechars:30}}
+           ({{sort.blog_count}})</a>
+          </li>
+          {%endfor%}
+        </ul>
+        <div class="pagination"> 
+          <ul><li>
+        {%if sort_page <= 1 %}<a href="#">Prev</a>
+        {%else%}
+            <a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
+            {%endif%}
+                <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
+          </ul>
+        </div>
+
+        <!--sorts end-->
+
+
         
  </div>
 
@@ -57,7 +66,7 @@
     <div class="page-header">
     
     <h2>
-      <a href="{%url 'blog.views.blog_detail' blog.id%}">{{blog.title}}</a>
+      <a href="{%url 'blog.views.blog_detail' blog_id=blog.id sort_id=1 %}">{{blog.title}}</a>
       </h2>
 
     <p>{{blog.pub_date}}</p>    
