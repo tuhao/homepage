@@ -17,10 +17,8 @@
         <div class="pagination"> 
 
           <ul><li>
-             {%if blog_page <= 1 %}<a href="#">Prev</a>
-        {%else%}
-            <a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a></li>
-            {%endif%}
+            <a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a>
+            </li>
                 <li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:1 %}">Next</a></li>
           </ul>
         </div>
