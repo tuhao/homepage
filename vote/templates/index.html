@@ -3,14 +3,7 @@
 {%block sidebar%}{%endblock%}
 {%block content%}
 
-{%for blog in blogs%}
-<div class="hero-unit">
-	<h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
-		  <p>{{blog.pub_date}}</p>
-            <p>{{blog.brief}}</p>
-            <p><a href="##" class="btn btn-primary btn-large">Learn more »</a></p>
-      </div>
-{%endfor%}
+
           <div class="row-fluid">
             <div class="span4">
               <h2>Heading</h2>
@@ -18,5 +11,31 @@
               <p><a class="btn" href="##">View details »</a></p>
             </div><!--/span-->
           </div><!--/row-->
+
+          <script type="text/javascript" src="/js/swfobject.js"></script>
+<div id="cloud">
+<p>
+<a href='#' style='font-size:24px;'>启科网络</a><a href='#' style='font-size:36px;'>域名注册</a><a href='#' style='font-size:32px;'>虚拟主机</a><a href='#' style='font-size:24px;'>企业邮局</a><a href='#' style='font-size:24px;'>网站空间</a><a href='#' style='font-size:36px;'>程序设计</a><a href='#' style='font-size:24px;'>ASP</a><a href='#' style='font-size:24px;'>php</a><a href='#' style='font-size:24px;'>JAVASCRIPT</a><a href='#' style='font-size:24px;'>tagcloud</a><a href='#' style='font-size:24px;'>启科网络</a><a href='#' style='font-size:36px;'>域名注册</a><a href='#' style='font-size:32px;'>虚拟主机</a><a href='#' style='font-size:24px;'>企业邮局</a><a href='#' style='font-size:24px;'>网站空间</a><a href='#' style='font-size:36px;'>程序设计</a><a href='#' style='font-size:24px;'>ASP</a><a href='#' style='font-size:24px;'>php</a><a href='#' style='font-size:24px;'>JAVASCRIPT</a><a href='#' style='font-size:24px;'>tagcloud</a>
+</p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var innerDivp = $('#cloud p').html();
+  var code = encodeURIComponent('<tags>' + innerDivp + '</tags>');
+  var cloud = new SWFObject("/js/tagcloud.swf", "tagcloudflash", "300", "270", "9", "#ffffff");
+  cloud.addParam("wmode", "transparent");
+  cloud.addParam("allowScriptAccess", "always");
+  cloud.addVariable("tcolor", "0x000000");
+  cloud.addVariable("tcolor2", "0x000000");
+  cloud.addVariable("hicolor", "0x999999");
+  cloud.addVariable("tspeed", "150");
+  cloud.addVariable("distr", "true");
+  cloud.addVariable("mode", "tags");
+  cloud.addVariable("tagcloud",code);
+  cloud.write("cloud");
+});
+</script>
+
 {%endblock%}
 {%block footer%}{%endblock%}
