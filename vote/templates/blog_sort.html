@@ -11,7 +11,7 @@
 <section id="blog_{{blog.id}}">
   <div class="hero-unit">
     <div class="page-header">
-    <h2><a href="{%url 'blog.views.blog_detail' sort_id=sort.id blog_id=blog.id %}">{{blog.title}}</a></h2>
+    <h2><a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}">{{blog.title}}</a></h2>
 
     <p>{{blog.pub_date}}</p>    
       {{blog.content|striptags|nbsp|safe|truncatechars:300}}

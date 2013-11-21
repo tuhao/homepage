@@ -12,8 +12,8 @@
          <li class="nav-header">Blogs of {{sort.name|default:"All"}} </li>
           {%for blog in blogs%}
           <li>
-            <a href="#blog_{{blog.id}}" onclick="window.location.href='{%url 'blog.views.blog_detail' sort_id=blog.sort.id blog_id=blog.id %}'">{{blog.title|truncatechars:23}}</a>
-         
+            <a href="#blog_{{blog.id}}" >{{blog.title|truncatechars:23}}</a>
+         <!--onclick="window.location.href='{%url 'blog.views.blog_detail'  blog_id=blog.id %}'"-->
           </li>
           {%endfor%}
         </ul>
@@ -68,7 +68,7 @@
     <div class="page-header">
     
     <h2>
-      <a href="{%url 'blog.views.blog_detail' blog_id=blog.id sort_id=1 %}">{{blog.title}}</a>
+      <a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}">{{blog.title}}</a>
       </h2>
 
     <p>{{blog.pub_date}}</p>    

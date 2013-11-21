@@ -57,15 +57,8 @@ def blogs(request, sort_page=1, blog_page=1):
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
-def blog_detail(request, blog_id, sort_id, blog_page=1, sort_page=1):
-    sp = sortp(sort_page)
-    bp = blogp(blog_page)
-    sorts = Sort.objects.annotate(
-        blog_count=Count('blog')).order_by('id')[sp[0]:sp[1]]
-    sort = get_object_or_404(Sort, pk=sort_id)
-    blogs = Blog.objects.filter(sort=sort)[bp[0]:bp[1]]
+def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
-    blog_total = Blog.objects.count()
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
 
