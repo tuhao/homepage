@@ -3,20 +3,21 @@
 <head>
 </head>
 <div>
-<form action="/search/" method="POST">
+<form action="{% url 'blog.views.blog_search' %}" method="POST">
+	{% csrf_token %}
 <input type="text" name="query"/>
 <input type="submit">
 </form>
-{% if story %}
+{% if blog %}
 <p>Your search for &ldquo;<strong>{{ query }}</strong>&rdquo; had <strong>{{ search_meta.total_found }}</strong> results.</p>
 <p>search_meta object dump: {{ search_meta }}</p>
 {% endif %}
 <hr/>
-{% for s in story %}
-<h3>{{ s.title }}</h3>
-<h4>{{s.body}}</h4>
-<p>(weight: {{ s.sphinx.weight }})</p>
-<p>story.sphinx object dump: {{ s.sphinx }}</p>
+{% for b in blog %}
+<h3>{{ b.title }}</h3>
+<h4>{{b.content}}</h4>
+<p>(weight: {{ b.sphinx.weight }})</p>
+<p>blog.sphinx object dump: {{ b.sphinx }}</p>
 {% endfor %}
 </div>
 </html>
