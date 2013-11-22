@@ -2,14 +2,16 @@
 {%block title%}index{%endblock%}
 {%block content%}
 <script type="text/javascript">
+    $(document).ready(changeActive(1));
     $(document).ready(changeLiActive({{sort.id}}));
 </script>
+
 {%load nbsp%}
 {%for blog in blogs%}
 <section id="blog_{{blog.id}}">
   <div class="hero-unit">
     <div class="page-header">
-    <h2><a href="{%url 'blog.views.blog_detail' blog.id %}">{{blog.title}}</a></h2>
+    <h2><a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}">{{blog.title}}</a></h2>
 
     <p>{{blog.pub_date}}</p>    
       {{blog.content|striptags|nbsp|safe|truncatechars:300}}

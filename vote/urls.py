@@ -20,9 +20,9 @@ urlpatterns = patterns('',
     
     #account
     url(r'^$',index),    
-    url(r'^accounts/login/$',login),
-    url(r'^accounts/logout/$',logout),
-    url(r'^accounts/regist/$',regist),
+    #url(r'^accounts/login/$',login),
+    #url(r'^accounts/logout/$',logout),
+    #url(r'^accounts/regist/$',regist),
     
     #admin
     url(r'^admin/', include(admin.site.urls)),

@@ -16,8 +16,9 @@ urlpatterns = patterns('',
 
                        # blog
                        url(r'^$', blogs),
+                       #url(r'^(?P<sort_page>\d+)/(?P<blog_page>\d+)/$', blogs),
                        url(r'^(?P<sort_page>[-]?\d+)/(?P<blog_page>[-]?\d+)/$', blogs),
                        url(r'^blog/(?P<blog_id>\d+)/$', blog_detail),
-                       url(r'^sort/(\d+)/$', sort_blogs),
-
+                       #url(r'^blog/(?P<blog_id>\d+)/(?P<sort_id>\d+)/$', blog_detail),
+                       url(r'^sort/(?P<sort_id>\d+)/$', sort_blogs),
                        )

@@ -13,7 +13,7 @@
 
 <div id="chartdiv" align="left">Chart will load here</div>
 <script type="text/javascript">
-    $(document).ready(changeActive(1));
+    $(document).ready(changeActive(2));
     
     var dataString='<chart caption="Airline Delay Causes" showPercentageInLabel="1" showValues="1" showLabels="0" showLegend="1" showPercentValues="1">';
     {%for choise in poll.choise_set.all%}
@@ -30,13 +30,21 @@
 <li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
 {%endfor%}
 </ul>
+{%load pagination_tags%}
+{%autopaginate poll_records 5%}
 <table class="table">
 {%for record in poll_records%}
 <tr>
-<td>{{record.user.username}} has voted to {{record.choise.choise_text}}</td>
+<td>{{record.ip|default:'visitor'|truncatechars:6|add:'.*.*'}}  has voted to {{record.choise.choise_text}}</td>
 </tr>
 {%endfor%}
 </table>
+{%paginate%}
+
+{%load duoshuo_tags%}
+<p>
+{%duoshuo_comments 'yasir'%}
+  </p>
 
 {%endblock%}
 {%block footer%}
