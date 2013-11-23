@@ -1,7 +1,7 @@
 {%extends "base_index.html"%}
 {%block title%}vote{%endblock%}
 {%block sidebar%}
-
+<div class="span3">
 
 {% load pagination_tags %}
 {% autopaginate polls 10 %}
@@ -16,6 +16,8 @@
 <div class="pagination"> 
 	{%paginate%}
 </div>
+
+</div>
 {%endblock%}
 {%block content%}
 <script type="text/javascript">
@@ -27,6 +29,7 @@ function choose(id){
     document.getElementById(id).checked = true;
 }
 </script>
+<div class="span9">
 {%if poll%}
 <form action="{%url 'users.views.vote' poll.id%}" method="post">
 {%csrf_token %}
@@ -61,6 +64,8 @@ function choose(id){
 </tr>
 </table>
 </form>
+
+</div>
 {%endif%}
 
 {%endblock%}

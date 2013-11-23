@@ -4,9 +4,7 @@
 {%block content%}
 
 <div class="row-fluid">
-
-
-<div class="span10">
+<div class="span8 offset2">
 	{% if results %}
 	<strong>{{ search_meta.total_found }}</strong> results.
 search_meta object dump: {{ search_meta }}
@@ -21,7 +19,7 @@ No results found.
 {% load pagination_tags %}
 {% autopaginate results 1 %}
 {% for b in results %}
-            <div class="span10">
+            <div class="span8 offset1" >
               <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|truncatechars:50 }}</a></h3>
               <p>{{b.content|striptags|nbsp|truncatechars:300}}</p>
               <p>(weight: {{ b.sphinx.weight }})</p>
@@ -29,8 +27,9 @@ No results found.
             </div><!--/span-->
 
 {% endfor %}
-</div><!--/row-->
-<div class="pagination">
+<div class="span8 pagination offset1">
 <h4>{% paginate %}</h4>
 </div>
+</div><!--/row-->
+
 {%endblock%}

@@ -4,6 +4,7 @@
 
 
 {%block sidebar%}
+<div class="span3">
 <div class="row-fluid">
 
 <div class="span12 well bs-docs-sidebar">
@@ -55,6 +56,7 @@
  </div>
 
  </div>
+</div>
 <script type="text/javascript" src="/js/swfobject.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -91,6 +93,7 @@ $(document).ready(function(){
 
 {%load nbsp%}
 {%for blog in blogs%}
+<div class="span9">
 <section id="blog_{{blog.id}}">
   <div class="hero-unit">
     <div class="page-header">
@@ -104,6 +107,7 @@ $(document).ready(function(){
     </div>
 </div>
 </section>
+</div>
 {%endfor%}
 
 <div class="pagination pagination-large" > 
