@@ -48,10 +48,13 @@
 
         <!--sorts end-->
  </div>
-
+ 
  <div class="span12 well" id="cloud" >
 <p>
-<a href='#' style='font-size:20px;'>启科网络</a><a href='#' style='font-size:28px;'>域名注册</a><a href='#' style='font-size:28px;'>虚拟主机</a><a href='#' style='font-size:20px;'>企业邮局</a><a href='#' style='font-size:20px;'>网站空间</a><a href='#' style='font-size:28px;'>程序设计</a><a href='#' style='font-size:20px;'>ASP</a><a href='#' style='font-size:20px;'>php</a><a href='#' style='font-size:20px;'>JAVASCRIPT</a><a href='#' style='font-size:20px;'>tagcloud</a><a href='#' style='font-size:20px;'>网站空间</a><a href='#' style='font-size:28px;'>程序设计</a><a href='#' style='font-size:20px;'>ASP</a><a href='#' style='font-size:20px;'>php</a><a href='#' style='font-size:20px;'>JAVASCRIPT</a><a href='#' style='font-size:20px;'>tagcloud</a>
+
+  {% for tag in tagclouds %}
+<a href="http://{{request.META.HTTP_HOST}}/blogs/search/?q={{tag}}" style='font-size:20px;'>{{tag}}</a>
+  {% endfor %}
 </p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
  </div>
 

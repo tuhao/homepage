@@ -1,12 +1,19 @@
 {%extends "blog_list.html"%}
 {%block title%}result{%endblock%}
-{%block sidebar%}{%endblock%}
+{%block sidebar%}
+{%endblock%}
 {%block content%}
+<script type="text/javascript">
+    $(document).ready(function(){
+      changeActive(-1);
 
+      });
+
+</script>
 <div class="row-fluid">
-<div class="span8 offset2">
+<div class="span8 offset1">
 	{% if results %}
-	<strong>{{ search_meta.total_found }}</strong> results.
+<strong>{{ search_meta.total_found }}</strong> results.
 search_meta object dump: {{ search_meta }}
 {% else %}
 Sorry,

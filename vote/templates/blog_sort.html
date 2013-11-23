@@ -5,9 +5,10 @@
     $(document).ready(changeActive(1));
     $(document).ready(changeLiActive({{sort.id}}));
 </script>
+<div class="span9">
 
 {% load pagination_tags %}
-{% autopaginate sort_blogs 2 %}
+{% autopaginate sort_blogs 10 %}
 {%load nbsp%}
 {%for blog in sort_blogs%}
 <section id="blog_{{blog.id}}">
@@ -18,14 +19,16 @@
     <p>{{blog.pub_date|date:"Y-m-d H:i:s"}}</p>    
       {{blog.content|striptags|nbsp|safe|truncatechars:300}}
     </div>
-</div>
+    </div>
 </section>
+
 {%empty%}
 Empty
 {%endfor%}
 
 <div class="pagination"> 
       {% paginate %}
+</div>
 </div>
 {%endblock%}
 {%block footer%}{%endblock%}

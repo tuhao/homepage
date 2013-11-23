@@ -5,7 +5,7 @@ from django.template import RequestContext
 from blog.models import *
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from random import randrange
 
 def paginate_sorts(request):
     sort_list = Sort.objects.annotate(
@@ -21,18 +21,31 @@ def paginate_sorts(request):
     return sorts
 
 def blog_tags():
+    total = Blog.objects.all().count()
+    try:
+        start = randrange(0,int(total) - 20)
+    except ValueError:
+        start = 0
+    blogs = Blog.objects.order_by('pub_date')[start:start + 20]
+    tagclouds = set()
+    for b in blogs:
+        tag_list = b.tags.split(' ')
+        for tag in tag_list:
+            tagclouds.add(tag)
+    return tagclouds
     
-    pass
 
 def blogs(request):
     sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')[0:10]
+    tagclouds = blog_tags()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     tags = blog.tags.split(' ')
+    tagclouds = blog_tags()
     blogs = Blog.objects.order_by('pub_date')
     sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
@@ -43,6 +56,7 @@ def sort_blogs(request, sort_id):
     sort_blogs = Blog.objects.filter(sort=sort)
     sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')
+    tagclouds = blog_tags()
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))
 
 
@@ -54,16 +68,4 @@ def blog_search(request):
     except Exception, e:
         results = list()
     context = {'results': results, 'query': query, 'search_meta': r._sphinx}
-    return render_to_response('blog_search.html', locals(), context_instance=RequestContext(request))
-
-
-def search_test(request):
-    if request.method == 'POST':
-        query = request.POST.get('query', None)
-        r = Blog.search.query(query)
-        blog = list(r)
-        context = {'blog': blog, 'query': query, 'search_meta': r._sphinx}
-    else:
-        blog = list()
-        context = {'blog': blog}
-    return render_to_response('search.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('blog_search.html', context, context_instance=RequestContext(request))
