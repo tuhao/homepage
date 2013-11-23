@@ -4,7 +4,7 @@ from blog.models import *
 admin.site.register(Sort)
 
 class BlogAdmin(admin.ModelAdmin):
-	list_display = ('id','title','sort','pub_date')
+	list_display = ('id','title','sort','pub_date','tags')
 	class Media:
 		js = (
 		'/tinymce/tinymce.min.js',

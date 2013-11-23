@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+</head>
+<div>
+<form action="{% url 'blog.views.search_test' %}" method="POST">
+	{% csrf_token %}
+<input type="text" name="query"/>
+<input type="submit">
+</form>
+{% if blog %}
+<p>Your search for &ldquo;<strong>{{ query }}</strong>&rdquo; had <strong>{{ search_meta.total_found }}</strong> results.</p>
+<p>search_meta object dump: {{ search_meta }}</p>
+{% endif %}
+<hr/>
+
+{% load nbsp %}
+{% for b in blog %}
+<h3>{{ b.title|truncatechars:30 }}</h3>
+<p>{{b.content|striptags|nbsp|truncatechars:300}}</p>
+<p>(weight: {{ b.sphinx.weight }})</p>
+<p>blog.sphinx object dump: {{ b.sphinx }}</p>
+{% endfor %}
+</div>
+</html>

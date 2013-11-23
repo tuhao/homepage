@@ -32,6 +32,9 @@ urlpatterns = patterns('',
 
     #blog
     url(r'^blogs/',include('blog.urls')),
+
+    #test
+    url(r'search/',search_test),
     
     #static
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
