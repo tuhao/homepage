@@ -40,35 +40,29 @@ def sortp(sort_page):
     return start_index(sp), end_index(sp)
 
 
-def blogp(blog_page):
-    blog_total = Blog.objects.count()
-    bp = validate(blog_page, blog_total)
-    return start_index(bp), end_index(bp)
-
-
-def blogs(request, sort_page=1, blog_page=1):
+def blogs(request, sort_page=1):
     sp = sortp(sort_page)
-    bp = blogp(blog_page)
-    blogs = Blog.objects.order_by('pub_date')[
-        bp[0]:bp[1]]
+    blogs = Blog.objects.order_by('pub_date')[0:10]
     sorts = Sort.objects.annotate(
         blog_count=Count('blog')).order_by('id')[sp[0]:sp[1]]
     blog_total = Blog.objects.count()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
-def blog_detail(request, blog_id):
+def blog_detail(request, blog_id,sort_page=1):
     blog = get_object_or_404(Blog, pk=blog_id)
+    blogs = Blog.objects.order_by('pub_date')
+    blog_total = Blog.objects.count()
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
 
-def sort_blogs(request, sort_id, blog_page=1, sort_page=1):
+def sort_blogs(request, sort_id, sort_page=1):
     sp = sortp(sort_page)
-    bp = blogp(blog_page)
     sorts = Sort.objects.annotate(
         blog_count=Count('blog')).order_by('id')[sp[0]:sp[1]]
     sort = get_object_or_404(Sort, pk=sort_id)
-    blogs = Blog.objects.filter(sort=sort)[bp[0]:bp[1]]
+    blogs = Blog.objects.order_by('pub_date')
+    sort_blogs = Blog.objects.filter(sort=sort)
     blog_total = Blog.objects.count()
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))
 
