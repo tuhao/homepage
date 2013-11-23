@@ -86,14 +86,14 @@ $(document).ready(function(){
 
 </script>
 
-
+<div class="span9">
 
 {% load pagination_tags %}
 {% autopaginate blogs 5 %}
 
 {%load nbsp%}
 {%for blog in blogs%}
-<div class="span9">
+
 <section id="blog_{{blog.id}}">
   <div class="hero-unit">
     <div class="page-header">
@@ -107,13 +107,13 @@ $(document).ready(function(){
     </div>
 </div>
 </section>
-</div>
+
 {%endfor%}
 
 <div class="pagination pagination-large" > 
    <h4>{% paginate %}</h4>
 </div>
-
+</div>
 
 {%endblock%}
 {%block footer%}{%endblock%}

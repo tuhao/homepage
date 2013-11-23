@@ -21,6 +21,7 @@ def paginate_sorts(request):
     return sorts
 
 def blog_tags():
+    
     pass
 
 def blogs(request):
@@ -31,6 +32,7 @@ def blogs(request):
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
+    tags = blog.tags.split(' ')
     blogs = Blog.objects.order_by('pub_date')
     sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))

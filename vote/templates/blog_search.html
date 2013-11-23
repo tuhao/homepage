@@ -17,7 +17,7 @@ No results found.
 
 {% load nbsp %}
 {% load pagination_tags %}
-{% autopaginate results 1 %}
+{% autopaginate results 10 %}
 {% for b in results %}
             <div class="span8 offset1" >
               <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|truncatechars:50 }}</a></h3>

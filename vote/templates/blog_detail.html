@@ -10,7 +10,12 @@
 <div class="span9">
  <div class="row-fluid" id="blog_{{blog.id}}">
               <h2>{{blog.title}}</h2>
-              <p>{{blog.pub_date}}</p>
+              <p>{{blog.pub_date|date:"Y-m-d H:i:s"}}</p>
+              <p>Tags: 
+                {% for t in tags %}<a href="/blogs/search/?q={{t}}">{{t}}</a>
+                {% endfor %}
+                </p>
+                <br/>
               <p>
               	{%autoescape off%}
               	{{blog.content}}
