@@ -1,7 +1,8 @@
 # Django settings for vote project.
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = None
+
 
 ADMINS = (
     ('yasir', '124915122@qq.com'),
