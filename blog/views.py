@@ -20,6 +20,9 @@ def paginate_sorts(request):
         sorts = paginator.page(paginator.num_pages)
     return sorts
 
+def blog_tags():
+    pass
+
 def blogs(request):
     sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')[0:10]
@@ -44,8 +47,8 @@ def sort_blogs(request, sort_id):
 def blog_search(request):
     query = request.GET.get('q', None)
     r = Blog.search.query(query)
-    blog = list(r)
-    context = {'blog': blog, 'query': query, 'search_meta': r._sphinx}
+    results = list(r)
+    context = {'results': results, 'query': query, 'search_meta': r._sphinx}
     return render_to_response('blog_search.html', locals(), context_instance=RequestContext(request))
 
 
