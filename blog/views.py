@@ -4,66 +4,40 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from blog.models import *
 from django.db.models import Count
-
-PAGE_SIZE = 10
-
-
-def start_index(page):
-    if page <= 0:
-        return 0
-    return (int(page) - 1) * PAGE_SIZE
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-def end_index(page):
-    return int(page) * PAGE_SIZE
+def paginate_sorts(request):
+    sort_list = Sort.objects.annotate(
+        blog_count=Count('blog')).all()
+    paginator = Paginator(sort_list,5)
+    sort_page = request.GET.get('sort_page')
+    try:
+        sorts = paginator.page(sort_page)
+    except PageNotAnInteger:
+        sorts = paginator.page(1)
+    except EmptyPage:
+        sorts = paginator.page(paginator.num_pages)
+    return sorts
 
-
-def max_page(total_size):
-    total = int(total_size)
-    if total % PAGE_SIZE == 0:
-        return total / PAGE_SIZE
-    else:
-        return (total - (total % PAGE_SIZE)) / PAGE_SIZE + 1
-
-
-def validate(page, total):
-    if int(page) > max_page(total):
-        return max_page(total)
-    if int(page) < 1:
-        return 1
-    return page
-
-
-def sortp(sort_page):
-    sort_total = Sort.objects.count()
-    sp = validate(sort_page, sort_total)
-    return start_index(sp), end_index(sp)
-
-
-def blogs(request, sort_page=1):
-    sp = sortp(sort_page)
+def blogs(request):
+    sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')[0:10]
-    sorts = Sort.objects.annotate(
-        blog_count=Count('blog')).order_by('id')[sp[0]:sp[1]]
-    blog_total = Blog.objects.count()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
-def blog_detail(request, blog_id,sort_page=1):
+def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     blogs = Blog.objects.order_by('pub_date')
-    blog_total = Blog.objects.count()
+    sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
 
-def sort_blogs(request, sort_id, sort_page=1):
-    sp = sortp(sort_page)
-    sorts = Sort.objects.annotate(
-        blog_count=Count('blog')).order_by('id')[sp[0]:sp[1]]
+def sort_blogs(request, sort_id):
     sort = get_object_or_404(Sort, pk=sort_id)
-    blogs = Blog.objects.order_by('pub_date')
     sort_blogs = Blog.objects.filter(sort=sort)
-    blog_total = Blog.objects.count()
+    sorts = paginate_sorts(request)
+    blogs = Blog.objects.order_by('pub_date')
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))
 
 

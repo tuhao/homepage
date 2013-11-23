@@ -24,8 +24,6 @@
         <!--sorts begin-->
         <ul class="nav nav-list bs-docs-sidenav">
           <li class="nav-header">Classified</li>
-          <li id="li_0"><a href="{%url 'blog.views.blogs'%}">All
-            ({{blog_total}})</a></li>
           {%for sort in sorts%}
           <li id="li_{{sort.id}}">
           <a href="{%url 'blog.views.sort_blogs' sort_id=sort.id %}">{{sort.name|truncatechars:30}}
@@ -34,8 +32,17 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-            <a href="#">‹‹ previous</a>
-            <a href="#">next ››</a>
+          {% if sorts.has_previous %}
+            <a href="?sort_page={{ sorts.previous_page_number}}">‹‹ previous</a>
+            {% else %}
+            ‹‹ previous
+          {% endif %}
+
+           {% if sorts.has_next %}
+            <a href="?sort_page={{ sorts.next_page_number }}">next ››</a>
+            {% else %}
+            next ››
+          {% endif %}
         </div>
 
         <!--sorts end-->
@@ -57,7 +64,7 @@
 
 
 {% load pagination_tags %}
-{% autopaginate blogs 2 %}
+{% autopaginate blogs 5 %}
 
 {%load nbsp%}
 {%for blog in blogs%}
