@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog,BlogAdmin)
 
-class AboutAdmin(admin.BlogAdmin):
+class AboutAdmin(admin.ModelAdmin):
 	list_display = ('id','title')
 	class Media:
 		js = (

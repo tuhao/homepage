@@ -11,7 +11,11 @@
 
 <div class="span9">
 <p>{% for a in abouts %}
+{%autoescape off%}
+
 	{{a.content}}
+{%endautoescape%}
+
 	{% endfor %}
 </p>
 

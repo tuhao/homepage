@@ -1,8 +1,8 @@
 # Django settings for vote project.
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-ALLOWED_HOSTS = ['192.168.1.102']
+DEBUG = False
+TEMPLATE_DEBUG = None
+ALLOWED_HOSTS = ['www.yasir.pw']
 
 ADMINS = (
     ('yasir', '124915122@qq.com'),
