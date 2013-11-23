@@ -1,13 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
-<head>
-</head>
-<div>
-<form action="{% url 'blog.views.search_test' %}" method="POST">
-	{% csrf_token %}
-<input type="text" name="query"/>
-<input type="submit">
-</form>
+{%extends "blog_list.html"%}
+{%block title%}result{%endblock%}
+{%block sidebar%}{%endblock%}
+{%block content%}
 {% if blog %}
 <p>Your search for &ldquo;<strong>{{ query }}</strong>&rdquo; had <strong>{{ search_meta.total_found }}</strong> results.</p>
 <p>search_meta object dump: {{ search_meta }}</p>
@@ -21,5 +15,5 @@
 <p>(weight: {{ b.sphinx.weight }})</p>
 <p>blog.sphinx object dump: {{ b.sphinx }}</p>
 {% endfor %}
-</div>
-</html>
+
+{%endblock%}

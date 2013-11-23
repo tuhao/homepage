@@ -74,6 +74,14 @@ def sort_blogs(request, sort_id, blog_page=1, sort_page=1):
 
 
 def blog_search(request):
+    query = request.GET.get('q', None)
+    r = Blog.search.query(query)
+    blog = list(r)
+    context = {'blog': blog, 'query': query, 'search_meta': r._sphinx}
+    return render_to_response('blog_search.html', locals(), context_instance=RequestContext(request))
+
+
+def search_test(request):
     if request.method == 'POST':
         query = request.POST.get('query', None)
         r = Blog.search.query(query)
@@ -82,4 +90,4 @@ def blog_search(request):
     else:
         blog = list()
         context = {'blog': blog}
-    return render_to_response('search.html', locals(),context_instance=RequestContext(request))
+    return render_to_response('search.html', locals(), context_instance=RequestContext(request))
