@@ -18,3 +18,6 @@ class Blog(models.Model):
 
     def __unicode__(self):
        return self.title
+
+class Counter(models.Model):
+    max_doc_id = models.IntegerField(default=0)

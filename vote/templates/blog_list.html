@@ -4,37 +4,27 @@
 
 
 {%block sidebar%}
+<div class="span3">
 <div class="row-fluid">
 
-<div class="span3 well bs-docs-sidebar affix">
-
+<div class="span12 well bs-docs-sidebar">
    <!-- blogs begin-->
         <ul class="nav nav-list bs-docs-sidenav">
-         <li class="nav-header">Blogs of {{sort.name|default:"All"}} </li>
+         <li class="nav-header">Fresh Blogs </li>
           {%for blog in blogs%}
           <li>
-            <a href="#blog_{{blog.id}}" >{{blog.title|truncatechars:23}}</a>
-         <!--onclick="window.location.href='{%url 'blog.views.blog_detail'  blog_id=blog.id %}'"-->
+            <a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}" >{{blog.title|truncatechars:23}}</a>
           </li>
           {%endfor%}
         </ul>
-        <div class="pagination"> 
-
-          <ul>
-
-            <li>
-            <a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:-1 %}">Prev</a>
-            </li>
-                <li><a href="{%url 'blog.views.blogs' sort_page=1 blog_page=blog_page|add:1 %}">Next</a></li>
-          </ul>
-        </div>
         <!--blogs end-->
 
+</div>
+
+<div class="span12 well bs-docs-sidebar">
         <!--sorts begin-->
         <ul class="nav nav-list bs-docs-sidenav">
           <li class="nav-header">Classified</li>
-          <li id="li_0"><a href="{%url 'blog.views.blogs'%}">All
-            ({{blog_total}})</a></li>
           {%for sort in sorts%}
           <li id="li_{{sort.id}}">
           <a href="{%url 'blog.views.sort_blogs' sort_id=sort.id %}">{{sort.name|truncatechars:30}}
@@ -43,50 +33,90 @@
           {%endfor%}
         </ul>
         <div class="pagination"> 
-          <ul><li>
-            <a href="{%url 'blog.views.blogs' sort_page=sort_page|add:-1 blog_page=1 %}">Prev</a></li>
-                <li><a href="{%url 'blog.views.blogs' sort_page=sort_page|add:1 blog_page=1 %}">Next</a></li>
-          </ul>
+          {% if sorts.has_previous %}
+            <a href="?sort_page={{ sorts.previous_page_number}}">‹‹ previous</a>
+            {% else %}
+            ‹‹ previous
+          {% endif %}
+
+           {% if sorts.has_next %}
+            <a href="?sort_page={{ sorts.next_page_number }}">next ››</a>
+            {% else %}
+            next ››
+          {% endif %}
         </div>
 
         <!--sorts end-->
+ </div>
+ 
+ <div class="span12 well" id="cloud" >
+<p>
 
-
-        
+  {% for tag in tagclouds %}
+<a href="http://{{request.META.HTTP_HOST}}/blogs/search/?q={{tag}}" style='font-size:20px;'>{{tag}}</a>
+  {% endfor %}
+</p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
  </div>
 
  </div>
-
+</div>
+<script type="text/javascript" src="/js/swfobject.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var innerDivp = $('#cloud p').html();
+  var code = encodeURIComponent('<tags>' + innerDivp + '</tags>');
+  var cloud = new SWFObject("/js/tagcloud.swf", "tagcloudflash", "270", "240", "9", "#ffffff");
+  cloud.addParam("wmode", "transparent");
+  cloud.addParam("allowScriptAccess", "always");
+  cloud.addVariable("tcolor", "0x000000");
+  cloud.addVariable("tcolor2", "0x000000");
+  cloud.addVariable("hicolor", "0x999999");
+  cloud.addVariable("tspeed", "150");
+  cloud.addVariable("distr", "true");
+  cloud.addVariable("mode", "tags");
+  cloud.addVariable("tagcloud",code);
+  cloud.write("cloud");
+});
+</script>
 
 {%endblock%}
 {%block content%}
-
 <script type="text/javascript">
-    $(document).ready(changeActive(1));
+    $(document).ready(function(){
+      changeActive(1);
+
+      });
+
 </script>
+
+<div class="span9">
+
+{% load pagination_tags %}
+{% autopaginate blogs 5 %}
 
 {%load nbsp%}
 {%for blog in blogs%}
+
 <section id="blog_{{blog.id}}">
   <div class="hero-unit">
     <div class="page-header">
     
-    <h2>
-      <a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}">{{blog.title}}</a>
-      </h2>
+    <h3>
+      <a href="{%url 'blog.views.blog_detail' blog_id=blog.id  %}">{{blog.title}}</a>
+      </h3>
 
-    <p>{{blog.pub_date}}</p>    
+    <p>{{blog.pub_date|date:"Y-m-d H:i:s"}}</p>    
       {{blog.content|striptags|nbsp|safe|truncatechars:300}}
     </div>
 </div>
 </section>
-<!--<div class="hero-unit">
-	<h2><a href="/blog/{{blog.id}}/">{{blog.title}}</a></h2>
-		  <p>{{blog.pub_date}}</p>
-            <p>{{blog.brief}}</p>
-            <p><a href="##" class="btn btn-primary btn-large">Learn more »</a></p>
-      </div>
-    -->
+
 {%endfor%}
+
+<div class="pagination pagination-large" > 
+   <h4>{% paginate %}</h4>
+</div>
+</div>
+
 {%endblock%}
 {%block footer%}{%endblock%}
