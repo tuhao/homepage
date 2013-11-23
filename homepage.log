@@ -1,140 +1,4 @@
-*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 11:52:19 2013] ***
-compiled with version: 4.7.2 on 20 October 2013 02:05:49
-os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
-nodename: alarmpi
-machine: armv6l
-clock source: unix
-pcre jit disabled
-detected number of CPU cores: 1
-current working directory: /srv/uwsgi/homepage
-writing pidfile to /tmp/homepage-master.pid
-detected binary path: /usr/bin/uwsgi
-your processes number limit is 1324
-your memory page size is 4096 bytes
-detected max file descriptor number: 1024
-lock engine: pthread robust mutexes
-thunder lock: disabled (you can enable it with --thunder-lock)
-uWSGI http bound on :8000 fd 4
-uwsgi socket 0 bound to TCP address 127.0.0.1:41449 (port auto-assigned) fd 3
-Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
-*** Python threads support is disabled. You can enable it with --enable-threads ***
-Python main interpreter initialized at 0x180eab0
-your server socket listen backlog is limited to 100 connections
-your mercy for graceful operations on workers is 60 seconds
-mapped 321480 bytes (313 KB) for 4 cores
-*** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x180eab0 pid: 4522 (default app)
-*** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 4522)
-spawned uWSGI worker 1 (pid: 4523, cores: 1)
-spawned uWSGI worker 2 (pid: 4524, cores: 1)
-spawned uWSGI worker 3 (pid: 4525, cores: 1)
-spawned uWSGI worker 4 (pid: 4526, cores: 1)
-spawned uWSGI http 1 (pid: 4527)
-[pid: 4526|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2230 bytes} [Sat Nov 23 19:52:22 2013] GET /blogs/ => generated 10606 bytes in 4858 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 2/2] 192.168.1.101 () {44 vars in 2292 bytes} [Sat Nov 23 19:52:27 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 1266 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 3/3] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 19:52:29 2013] GET /js/bootstrap.min.js => generated 0 bytes in 188 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 1/4] 192.168.1.101 () {44 vars in 2270 bytes} [Sat Nov 23 19:52:27 2013] GET /css/bootstrap.min.css => generated 0 bytes in 12089 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 1/5] 192.168.1.101 () {44 vars in 2245 bytes} [Sat Nov 23 19:52:27 2013] GET /js/jquery.min.js => generated 0 bytes in 12081 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 1/6] 192.168.1.101 () {44 vars in 2249 bytes} [Sat Nov 23 19:52:27 2013] GET /js/swfobject.js => generated 0 bytes in 12418 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 4/7] 192.168.1.101 () {42 vars in 2218 bytes} [Sat Nov 23 19:52:40 2013] GET /js/tagcloud.swf => generated 0 bytes in 205 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 2/8] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:52:40 2013] GET /favicon.ico => generated 2746 bytes in 444 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 5/9] 192.168.1.101 () {40 vars in 2219 bytes} [Sat Nov 23 19:52:43 2013] GET /blogs/blog/2/ => generated 18227 bytes in 611 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4524|app: 0|req: 3/10] 192.168.1.101 () {44 vars in 2270 bytes} [Sat Nov 23 19:52:43 2013] GET /css/bootstrap.min.css => generated 0 bytes in 188 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 2/11] 192.168.1.101 () {44 vars in 2292 bytes} [Sat Nov 23 19:52:43 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 215 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 2/12] 192.168.1.101 () {44 vars in 2249 bytes} [Sat Nov 23 19:52:43 2013] GET /js/swfobject.js => generated 0 bytes in 187 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 6/13] 192.168.1.101 () {44 vars in 2245 bytes} [Sat Nov 23 19:52:43 2013] GET /js/jquery.min.js => generated 0 bytes in 196 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 4/14] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 19:52:43 2013] GET /js/bootstrap.min.js => generated 0 bytes in 58 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 7/15] 192.168.1.101 () {42 vars in 2225 bytes} [Sat Nov 23 19:52:44 2013] GET /js/tagcloud.swf => generated 0 bytes in 49 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 3/16] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:52:44 2013] GET /favicon.ico => generated 2746 bytes in 171 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 8/17] 192.168.1.101 () {40 vars in 2226 bytes} [Sat Nov 23 19:52:49 2013] GET /blogs/blog/4/ => generated 8336 bytes in 790 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4525|app: 0|req: 4/18] 192.168.1.101 () {44 vars in 2292 bytes} [Sat Nov 23 19:52:50 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 190 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 5/19] 192.168.1.101 () {44 vars in 2270 bytes} [Sat Nov 23 19:52:50 2013] GET /css/bootstrap.min.css => generated 0 bytes in 192 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 3/20] 192.168.1.101 () {44 vars in 2245 bytes} [Sat Nov 23 19:52:50 2013] GET /js/jquery.min.js => generated 0 bytes in 188 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 6/21] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 19:52:51 2013] GET /js/bootstrap.min.js => generated 0 bytes in 146 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 9/22] 192.168.1.101 () {44 vars in 2249 bytes} [Sat Nov 23 19:52:51 2013] GET /js/swfobject.js => generated 0 bytes in 157 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 5/23] 192.168.1.101 () {42 vars in 2225 bytes} [Sat Nov 23 19:52:51 2013] GET /js/tagcloud.swf => generated 0 bytes in 50 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 10/24] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:52:51 2013] GET /favicon.ico => generated 2746 bytes in 147 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-Internal Server Error: /blogs/search/
-Traceback (most recent call last):
-  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 115, in get_response
-    response = callback(request, *callback_args, **callback_kwargs)
-  File "./blog/views.py", line 70, in blog_search
-    context = {'results': results, 'query': query, 'search_meta': r._sphinx}
-  File "./djangosphinx/models.py", line 414, in _sphinx
-    self._get_data()
-  File "./djangosphinx/models.py", line 422, in _get_data
-    self._result_cache = list(self._get_results())
-  File "./djangosphinx/models.py", line 557, in _get_results
-    results = self._get_sphinx_results()
-  File "./djangosphinx/models.py", line 535, in _get_sphinx_results
-    raise SearchError, client.GetLastError()
-SearchError: connection to localhost:3312 failed ([Errno 111] Connection refused)
-[pid: 4525|app: 0|req: 6/25] 192.168.1.101 () {40 vars in 2241 bytes} [Sat Nov 23 19:52:53 2013] GET /blogs/search/?q=linux => generated 73475 bytes in 3961 msecs (HTTP/1.1 500) 1 headers in 63 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 11/26] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:52:57 2013] GET /favicon.ico => generated 2746 bytes in 145 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4525|app: 0|req: 7/27] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:52:59 2013] GET /favicon.ico => generated 2746 bytes in 144 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-Internal Server Error: /blogs/search/
-Traceback (most recent call last):
-  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 115, in get_response
-    response = callback(request, *callback_args, **callback_kwargs)
-  File "./blog/views.py", line 70, in blog_search
-    context = {'results': results, 'query': query, 'search_meta': r._sphinx}
-  File "./djangosphinx/models.py", line 414, in _sphinx
-    self._get_data()
-  File "./djangosphinx/models.py", line 422, in _get_data
-    self._result_cache = list(self._get_results())
-  File "./djangosphinx/models.py", line 557, in _get_results
-    results = self._get_sphinx_results()
-  File "./djangosphinx/models.py", line 535, in _get_sphinx_results
-    raise SearchError, client.GetLastError()
-SearchError: connection to localhost:3312 failed ([Errno 111] Connection refused)
-[pid: 4526|app: 0|req: 12/28] 192.168.1.101 () {40 vars in 2241 bytes} [Sat Nov 23 19:53:01 2013] GET /blogs/search/?q=linux => generated 73475 bytes in 3693 msecs (HTTP/1.1 500) 1 headers in 63 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 13/29] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:53:05 2013] GET /favicon.ico => generated 2746 bytes in 148 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4525|app: 0|req: 8/30] 192.168.1.101 () {38 vars in 2145 bytes} [Sat Nov 23 19:53:34 2013] GET / => generated 3524 bytes in 97 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4524|app: 0|req: 7/31] 192.168.1.101 () {42 vars in 2239 bytes} [Sat Nov 23 19:53:35 2013] GET /css/bootstrap.min.css => generated 0 bytes in 187 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 4/32] 192.168.1.101 () {42 vars in 2214 bytes} [Sat Nov 23 19:53:35 2013] GET /js/jquery.min.js => generated 0 bytes in 181 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 14/33] 192.168.1.101 () {42 vars in 2261 bytes} [Sat Nov 23 19:53:35 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 204 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 9/34] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 19:53:35 2013] GET /js/bootstrap.min.js => generated 0 bytes in 176 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 8/35] 192.168.1.101 () {36 vars in 587 bytes} [Sat Nov 23 19:53:35 2013] GET /favicon.ico => generated 2746 bytes in 144 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 15/36] 192.168.1.101 () {40 vars in 2197 bytes} [Sat Nov 23 19:53:36 2013] GET /blogs/ => generated 10606 bytes in 775 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4525|app: 0|req: 10/37] 192.168.1.101 () {44 vars in 2290 bytes} [Sat Nov 23 19:53:37 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 136 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 9/38] 192.168.1.101 () {44 vars in 2244 bytes} [Sat Nov 23 19:53:37 2013] GET /js/jquery.min.js => generated 0 bytes in 186 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 16/39] 192.168.1.101 () {44 vars in 2269 bytes} [Sat Nov 23 19:53:37 2013] GET /css/bootstrap.min.css => generated 0 bytes in 210 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 5/40] 192.168.1.101 () {42 vars in 2217 bytes} [Sat Nov 23 19:53:37 2013] GET /js/swfobject.js => generated 0 bytes in 182 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 11/41] 192.168.1.101 () {44 vars in 2250 bytes} [Sat Nov 23 19:53:37 2013] GET /js/bootstrap.min.js => generated 0 bytes in 125 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 17/42] 192.168.1.101 () {42 vars in 2217 bytes} [Sat Nov 23 19:53:38 2013] GET /js/tagcloud.swf => generated 0 bytes in 66 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 12/43] 192.168.1.101 () {36 vars in 586 bytes} [Sat Nov 23 19:53:38 2013] GET /favicon.ico => generated 2746 bytes in 157 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 18/44] 192.168.1.101 () {40 vars in 2202 bytes} [Sat Nov 23 19:53:39 2013] GET /vote/ => generated 3485 bytes in 332 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4524|app: 0|req: 10/45] 192.168.1.101 () {44 vars in 2269 bytes} [Sat Nov 23 19:53:40 2013] GET /css/bootstrap.min.css => generated 0 bytes in 188 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 6/46] 192.168.1.101 () {44 vars in 2244 bytes} [Sat Nov 23 19:53:40 2013] GET /js/jquery.min.js => generated 0 bytes in 183 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 13/47] 192.168.1.101 () {44 vars in 2291 bytes} [Sat Nov 23 19:53:40 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 205 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 19/48] 192.168.1.101 () {44 vars in 2250 bytes} [Sat Nov 23 19:53:40 2013] GET /js/bootstrap.min.js => generated 0 bytes in 180 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 11/49] 192.168.1.101 () {36 vars in 586 bytes} [Sat Nov 23 19:53:40 2013] GET /favicon.ico => generated 2746 bytes in 143 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 20/50] 192.168.1.101 () {40 vars in 2203 bytes} [Sat Nov 23 19:53:41 2013] GET /blogs/ => generated 10606 bytes in 769 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4525|app: 0|req: 14/51] 192.168.1.101 () {44 vars in 2291 bytes} [Sat Nov 23 19:53:41 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 196 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 12/54] 192.168.1.101 () {44 vars in 2244 bytes} [Sat Nov 23 19:53:41 2013] GET /js/jquery.min.js => generated 0 bytes in 190 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 7/54] 192.168.1.101 () {44 vars in 2248 bytes} [Sat Nov 23 19:53:42 2013] GET /js/swfobject.js => generated 0 bytes in 182 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 21/54] 192.168.1.101 () {44 vars in 2269 bytes} [Sat Nov 23 19:53:41 2013] GET /css/bootstrap.min.css => generated 0 bytes in 201 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 15/55] 192.168.1.101 () {44 vars in 2250 bytes} [Sat Nov 23 19:53:42 2013] GET /js/bootstrap.min.js => generated 0 bytes in 59 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 22/56] 192.168.1.101 () {42 vars in 2217 bytes} [Sat Nov 23 19:53:42 2013] GET /js/tagcloud.swf => generated 0 bytes in 81 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 16/57] 192.168.1.101 () {36 vars in 586 bytes} [Sat Nov 23 19:53:42 2013] GET /favicon.ico => generated 2746 bytes in 164 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4526|app: 0|req: 23/58] 192.168.1.101 () {40 vars in 2218 bytes} [Sat Nov 23 19:53:43 2013] GET /blogs/sort/2/ => generated 8930 bytes in 836 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4524|app: 0|req: 13/60] 192.168.1.101 () {44 vars in 2269 bytes} [Sat Nov 23 19:53:44 2013] GET /css/bootstrap.min.css => generated 0 bytes in 185 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 17/60] 192.168.1.101 () {44 vars in 2291 bytes} [Sat Nov 23 19:53:44 2013] GET /css/bootstrap-responsive.min.css => generated 0 bytes in 199 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4523|app: 0|req: 8/61] 192.168.1.101 () {44 vars in 2248 bytes} [Sat Nov 23 19:53:44 2013] GET /js/swfobject.js => generated 0 bytes in 176 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 24/62] 192.168.1.101 () {44 vars in 2244 bytes} [Sat Nov 23 19:53:44 2013] GET /js/jquery.min.js => generated 0 bytes in 188 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4524|app: 0|req: 14/63] 192.168.1.101 () {44 vars in 2250 bytes} [Sat Nov 23 19:53:45 2013] GET /js/bootstrap.min.js => generated 0 bytes in 53 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4526|app: 0|req: 25/64] 192.168.1.101 () {42 vars in 2224 bytes} [Sat Nov 23 19:53:45 2013] GET /js/tagcloud.swf => generated 0 bytes in 48 msecs (HTTP/1.1 304) 1 headers in 48 bytes (0 switches on core 0)
-[pid: 4525|app: 0|req: 18/65] 192.168.1.101 () {36 vars in 586 bytes} [Sat Nov 23 19:53:45 2013] GET /favicon.ico => generated 2746 bytes in 144 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-SIGINT/SIGQUIT received...killing workers...
-gateway "uWSGI http 1" has been buried (pid: 4527)
-worker 1 buried after 2 seconds
-worker 2 buried after 2 seconds
-worker 3 buried after 2 seconds
-worker 4 buried after 2 seconds
-goodbye to uWSGI.
-VACUUM: pidfile removed.
-*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 11:56:53 2013] ***
+*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:32:14 2013] ***
 compiled with version: 4.7.2 on 20 October 2013 02:05:49
 os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
 nodename: alarmpi
@@ -153,45 +17,30 @@ thunder lock: disabled (you can enable it with --thunder-lock)
 uwsgi socket 0 bound to TCP address :8000 fd 3
 Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
 *** Python threads support is disabled. You can enable it with --enable-threads ***
-Python main interpreter initialized at 0x2002640
+Python main interpreter initialized at 0xc0f600
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 321480 bytes (313 KB) for 4 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x2002640 pid: 4558 (default app)
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0xc0f600 pid: 4816 (default app)
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 4558)
-spawned uWSGI worker 1 (pid: 4559, cores: 1)
-spawned uWSGI worker 2 (pid: 4560, cores: 1)
-spawned uWSGI worker 3 (pid: 4561, cores: 1)
-spawned uWSGI worker 4 (pid: 4562, cores: 1)
-[pid: 4560|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2202 bytes} [Sat Nov 23 19:56:56 2013] GET / => generated 3524 bytes in 3749 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4560|app: 0|req: 2/2] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 19:57:00 2013] GET /js/bootstrap.min.js => generated 2263 bytes in 641 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 1/3] 192.168.1.101 () {42 vars in 2205 bytes} [Sat Nov 23 19:57:00 2013] GET /css/bootstrap.min.css => generated 2269 bytes in 11469 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4559|app: 0|req: 1/4] 192.168.1.101 () {42 vars in 2180 bytes} [Sat Nov 23 19:57:00 2013] GET /js/jquery.min.js => generated 2254 bytes in 11805 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 1/5] 192.168.1.101 () {42 vars in 2227 bytes} [Sat Nov 23 19:57:00 2013] GET /css/bootstrap-responsive.min.css => generated 2302 bytes in 11835 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 2/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 19:57:12 2013] GET /favicon.ico => generated 2239 bytes in 246 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 2/7] 192.168.1.101 () {42 vars in 2208 bytes} [Sat Nov 23 19:57:15 2013] GET / => generated 3524 bytes in 106 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4559|app: 0|req: 2/9] 192.168.1.101 () {42 vars in 2205 bytes} [Sat Nov 23 19:57:15 2013] GET /css/bootstrap.min.css => generated 2269 bytes in 563 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4560|app: 0|req: 3/10] 192.168.1.101 () {42 vars in 2180 bytes} [Sat Nov 23 19:57:15 2013] GET /js/jquery.min.js => generated 2254 bytes in 557 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 3/10] 192.168.1.101 () {42 vars in 2227 bytes} [Sat Nov 23 19:57:15 2013] GET /css/bootstrap-responsive.min.css => generated 2302 bytes in 580 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 3/11] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 19:57:15 2013] GET /js/bootstrap.min.js => generated 2263 bytes in 560 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 4/12] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 19:57:16 2013] GET /favicon.ico => generated 2239 bytes in 117 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 4/13] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 19:57:17 2013] GET /blogs/ => generated 10571 bytes in 1314 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 5/16] 192.168.1.101 () {42 vars in 2211 bytes} [Sat Nov 23 19:57:19 2013] GET /css/bootstrap.min.css => generated 2269 bytes in 574 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4560|app: 0|req: 4/16] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 19:57:19 2013] GET /js/jquery.min.js => generated 2254 bytes in 568 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4559|app: 0|req: 3/16] 192.168.1.101 () {42 vars in 2184 bytes} [Sat Nov 23 19:57:19 2013] GET /js/swfobject.js => generated 2251 bytes in 554 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 5/17] 192.168.1.101 () {42 vars in 2233 bytes} [Sat Nov 23 19:57:19 2013] GET /css/bootstrap-responsive.min.css => generated 2302 bytes in 571 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4562|app: 0|req: 6/18] 192.168.1.101 () {42 vars in 2192 bytes} [Sat Nov 23 19:57:19 2013] GET /js/bootstrap.min.js => generated 2263 bytes in 149 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4561|app: 0|req: 6/19] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 19:57:19 2013] GET /favicon.ico => generated 2239 bytes in 119 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 4816)
+spawned uWSGI worker 1 (pid: 4817, cores: 1)
+spawned uWSGI worker 2 (pid: 4818, cores: 1)
+spawned uWSGI worker 3 (pid: 4819, cores: 1)
+spawned uWSGI worker 4 (pid: 4820, cores: 1)
+[pid: 4818|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2202 bytes} [Sat Nov 23 20:32:17 2013] GET / => generated 3530 bytes in 3578 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
+[pid: 4818|app: 0|req: 2/2] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 20:32:23 2013] GET /blogs/ => generated 10591 bytes in 2657 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
+[pid: 4820|app: 0|req: 1/3] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:32:21 2013] GET /favicon.ico => generated 368 bytes in 5069 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4818|app: 0|req: 3/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:32:26 2013] GET /favicon.ico => generated 368 bytes in 207 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
 SIGINT/SIGQUIT received...killing workers...
-worker 1 buried after 2 seconds
-worker 2 buried after 2 seconds
-worker 3 buried after 2 seconds
-worker 4 buried after 2 seconds
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
 goodbye to uWSGI.
 VACUUM: pidfile removed.
-*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:08:50 2013] ***
+*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:32:54 2013] ***
 compiled with version: 4.7.2 on 20 October 2013 02:05:49
 os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
 nodename: alarmpi
@@ -210,37 +59,66 @@ thunder lock: disabled (you can enable it with --thunder-lock)
 uwsgi socket 0 bound to TCP address :8000 fd 3
 Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
 *** Python threads support is disabled. You can enable it with --enable-threads ***
-Python main interpreter initialized at 0x1520600
+Python main interpreter initialized at 0x64f600
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 321480 bytes (313 KB) for 4 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1520600 pid: 4638 (default app)
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x64f600 pid: 4835 (default app)
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 4638)
-spawned uWSGI worker 1 (pid: 4640, cores: 1)
-spawned uWSGI worker 2 (pid: 4641, cores: 1)
-spawned uWSGI worker 3 (pid: 4642, cores: 1)
-spawned uWSGI worker 4 (pid: 4643, cores: 1)
-[pid: 4642|app: 0|req: 1/1] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:08:53 2013] GET /blogs/ => generated 10584 bytes in 4821 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 1/2] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 20:08:58 2013] GET /js/jquery.min.js => generated 2254 bytes in 3717 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 2/3] 192.168.1.101 () {42 vars in 2226 bytes} [Sat Nov 23 20:09:02 2013] GET /blogs/ => generated 10584 bytes in 2706 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 3/4] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 20:09:05 2013] GET /js/jquery.min.js => generated 2254 bytes in 299 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 1/5] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:01 2013] GET /favicon.ico => generated 2239 bytes in 5285 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 4/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:07 2013] GET /favicon.ico => generated 2239 bytes in 121 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 5/7] 192.168.1.101 () {42 vars in 2240 bytes} [Sat Nov 23 20:09:43 2013] GET /blogs/blog/1/ => generated 12517 bytes in 605 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 2/8] 192.168.1.101 () {42 vars in 2193 bytes} [Sat Nov 23 20:09:43 2013] GET /js/jquery.min.js => generated 2254 bytes in 144 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 6/9] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:44 2013] GET /favicon.ico => generated 2239 bytes in 124 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 3/10] 192.168.1.101 () {42 vars in 2221 bytes} [Sat Nov 23 20:09:48 2013] GET / => generated 3523 bytes in 103 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 7/11] 192.168.1.101 () {42 vars in 2180 bytes} [Sat Nov 23 20:09:49 2013] GET /js/jquery.min.js => generated 2254 bytes in 143 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 4/12] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:49 2013] GET /favicon.ico => generated 2239 bytes in 122 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 8/13] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 20:09:52 2013] GET /blogs/ => generated 10584 bytes in 760 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 5/14] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 20:09:53 2013] GET /js/jquery.min.js => generated 2254 bytes in 141 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 9/15] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:53 2013] GET /favicon.ico => generated 2239 bytes in 124 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 6/16] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:09:58 2013] GET /favicon.ico => generated 2239 bytes in 118 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 10/17] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 20:10:02 2013] GET /blogs/ => generated 10584 bytes in 780 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4640|app: 0|req: 7/18] 192.168.1.101 () {42 vars in 2186 bytes} [Sat Nov 23 20:10:03 2013] GET /js/jquery.min.js => generated 2254 bytes in 142 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4643|app: 0|req: 11/19] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:10:03 2013] GET /favicon.ico => generated 2239 bytes in 119 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 4835)
+spawned uWSGI worker 1 (pid: 4836, cores: 1)
+spawned uWSGI worker 2 (pid: 4837, cores: 1)
+spawned uWSGI worker 3 (pid: 4838, cores: 1)
+spawned uWSGI worker 4 (pid: 4839, cores: 1)
+[pid: 4836|app: 0|req: 1/1] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:32:57 2013] GET /blogs/ => generated 368 bytes in 3804 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4838|app: 0|req: 1/2] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:33:01 2013] GET /favicon.ico => generated 368 bytes in 6153 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4837|app: 0|req: 1/3] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:33:02 2013] GET /blogs/ => generated 368 bytes in 6362 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4838|app: 0|req: 2/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:33:09 2013] GET /favicon.ico => generated 368 bytes in 141 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 4 buried after 1 seconds
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:33:35 2013] ***
+compiled with version: 4.7.2 on 20 October 2013 02:05:49
+os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
+nodename: alarmpi
+machine: armv6l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /srv/uwsgi/homepage
+writing pidfile to /tmp/homepage-master.pid
+detected binary path: /usr/bin/uwsgi
+your processes number limit is 1324
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1b21600
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 321480 bytes (313 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1b21600 pid: 4860 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 4860)
+spawned uWSGI worker 1 (pid: 4861, cores: 1)
+spawned uWSGI worker 2 (pid: 4862, cores: 1)
+spawned uWSGI worker 3 (pid: 4863, cores: 1)
+spawned uWSGI worker 4 (pid: 4864, cores: 1)
+[pid: 4863|app: 0|req: 1/1] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:33:38 2013] GET /blogs/ => generated 368 bytes in 3797 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4864|app: 0|req: 1/2] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:33:42 2013] GET /favicon.ico => generated 368 bytes in 5434 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4861|app: 0|req: 1/3] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:33:44 2013] GET /blogs/ => generated 368 bytes in 5655 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4864|app: 0|req: 2/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:33:50 2013] GET /favicon.ico => generated 368 bytes in 138 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4861|app: 0|req: 2/5] 192.168.1.101 () {44 vars in 2251 bytes} [Sat Nov 23 20:33:50 2013] GET /blogs/ => generated 368 bytes in 348 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4864|app: 0|req: 3/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:33:51 2013] GET /favicon.ico => generated 368 bytes in 133 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
 SIGINT/SIGQUIT received...killing workers...
 worker 2 buried after 1 seconds
 worker 1 buried after 2 seconds
@@ -248,7 +126,7 @@ worker 3 buried after 2 seconds
 worker 4 buried after 2 seconds
 goodbye to uWSGI.
 VACUUM: pidfile removed.
-*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:11:23 2013] ***
+*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:34:53 2013] ***
 compiled with version: 4.7.2 on 20 October 2013 02:05:49
 os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
 nodename: alarmpi
@@ -267,26 +145,24 @@ thunder lock: disabled (you can enable it with --thunder-lock)
 uwsgi socket 0 bound to TCP address :8000 fd 3
 Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
 *** Python threads support is disabled. You can enable it with --enable-threads ***
-Python main interpreter initialized at 0x1111600
+Python main interpreter initialized at 0x2e3600
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 321480 bytes (313 KB) for 4 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1111600 pid: 4661 (default app)
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x2e3600 pid: 4893 (default app)
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 4661)
-spawned uWSGI worker 1 (pid: 4662, cores: 1)
-spawned uWSGI worker 2 (pid: 4663, cores: 1)
-spawned uWSGI worker 3 (pid: 4664, cores: 1)
-spawned uWSGI worker 4 (pid: 4665, cores: 1)
-[pid: 4662|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2226 bytes} [Sat Nov 23 20:11:26 2013] GET /blogs/ => generated 10591 bytes in 4845 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4665|app: 0|req: 1/2] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:11:31 2013] GET /favicon.ico => generated 2239 bytes in 4132 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4663|app: 0|req: 1/3] 192.168.1.101 () {42 vars in 2240 bytes} [Sat Nov 23 20:11:35 2013] GET /blogs/blog/2/ => generated 18212 bytes in 6635 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4665|app: 0|req: 2/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:11:42 2013] GET /favicon.ico => generated 2239 bytes in 140 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4663|app: 0|req: 2/5] 192.168.1.101 () {42 vars in 2231 bytes} [Sat Nov 23 20:11:49 2013] GET /vote/ => generated 3491 bytes in 341 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4665|app: 0|req: 3/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:11:50 2013] GET /favicon.ico => generated 2239 bytes in 120 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4663|app: 0|req: 3/7] 192.168.1.101 () {42 vars in 2225 bytes} [Sat Nov 23 20:11:51 2013] GET /blogs/ => generated 10591 bytes in 783 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4665|app: 0|req: 4/8] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:11:52 2013] GET /favicon.ico => generated 2239 bytes in 122 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 4893)
+spawned uWSGI worker 1 (pid: 4894, cores: 1)
+spawned uWSGI worker 2 (pid: 4895, cores: 1)
+spawned uWSGI worker 3 (pid: 4896, cores: 1)
+spawned uWSGI worker 4 (pid: 4897, cores: 1)
+[pid: 4894|app: 0|req: 1/1] 192.168.1.101 () {44 vars in 2293 bytes} [Sat Nov 23 20:34:57 2013] GET /blogs/search/?q=Linux => generated 368 bytes in 3906 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4894|app: 0|req: 2/2] 192.168.1.101 () {44 vars in 2293 bytes} [Sat Nov 23 20:35:02 2013] GET /blogs/search/?q=Linux => generated 368 bytes in 723 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4897|app: 0|req: 1/3] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:35:01 2013] GET /favicon.ico => generated 368 bytes in 3982 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4894|app: 0|req: 3/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:35:05 2013] GET /favicon.ico => generated 368 bytes in 267 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4895|app: 0|req: 1/5] 192.168.1.101 () {42 vars in 2202 bytes} [Sat Nov 23 20:35:05 2013] GET / => generated 368 bytes in 4000 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4897|app: 0|req: 2/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:35:09 2013] GET /favicon.ico => generated 368 bytes in 138 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
 SIGINT/SIGQUIT received...killing workers...
 worker 3 buried after 1 seconds
 worker 1 buried after 2 seconds
@@ -294,7 +170,7 @@ worker 2 buried after 2 seconds
 worker 4 buried after 2 seconds
 goodbye to uWSGI.
 VACUUM: pidfile removed.
-*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:17:07 2013] ***
+*** Starting uWSGI 1.9.18.1 (32bit) on [Sat Nov 23 12:35:35 2013] ***
 compiled with version: 4.7.2 on 20 October 2013 02:05:49
 os: Linux-3.6.11-18-ARCH+ #1 PREEMPT Mon Oct 21 01:15:42 CDT 2013
 nodename: alarmpi
@@ -313,23 +189,28 @@ thunder lock: disabled (you can enable it with --thunder-lock)
 uwsgi socket 0 bound to TCP address :8000 fd 3
 Python version: 2.7.5 (default, Sep  6 2013, 07:17:12)  [GCC 4.7.2]
 *** Python threads support is disabled. You can enable it with --enable-threads ***
-Python main interpreter initialized at 0x17a0600
+Python main interpreter initialized at 0x1fe2600
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 321480 bytes (313 KB) for 4 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x17a0600 pid: 4708 (default app)
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1fe2600 pid: 4927 (default app)
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 4708)
-spawned uWSGI worker 1 (pid: 4709, cores: 1)
-spawned uWSGI worker 2 (pid: 4710, cores: 1)
-spawned uWSGI worker 3 (pid: 4711, cores: 1)
-spawned uWSGI worker 4 (pid: 4712, cores: 1)
-[pid: 4710|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2226 bytes} [Sat Nov 23 20:17:11 2013] GET /blogs/ => generated 10591 bytes in 4911 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4711|app: 0|req: 1/2] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:17:16 2013] GET /favicon.ico => generated 2239 bytes in 3696 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4712|app: 0|req: 1/3] 192.168.1.101 () {42 vars in 2255 bytes} [Sat Nov 23 20:17:40 2013] GET /blogs/search/?q=linux => generated 7328 bytes in 4639 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4711|app: 0|req: 2/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:17:45 2013] GET /favicon.ico => generated 2239 bytes in 119 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4712|app: 0|req: 2/5] 192.168.1.101 () {42 vars in 2255 bytes} [Sat Nov 23 20:18:02 2013] GET /blogs/blog/1/ => generated 12524 bytes in 639 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4711|app: 0|req: 3/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:18:03 2013] GET /favicon.ico => generated 2239 bytes in 119 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
-[pid: 4712|app: 0|req: 3/7] 192.168.1.101 () {42 vars in 2262 bytes} [Sat Nov 23 20:18:08 2013] GET /blogs/search/?q=Linux => generated 7328 bytes in 533 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
-[pid: 4711|app: 0|req: 4/8] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:18:09 2013] GET /favicon.ico => generated 2239 bytes in 118 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 4927)
+spawned uWSGI worker 1 (pid: 4928, cores: 1)
+spawned uWSGI worker 2 (pid: 4929, cores: 1)
+spawned uWSGI worker 3 (pid: 4930, cores: 1)
+spawned uWSGI worker 4 (pid: 4931, cores: 1)
+[pid: 4928|app: 0|req: 1/1] 192.168.1.101 () {42 vars in 2202 bytes} [Sat Nov 23 20:35:38 2013] GET / => generated 3530 bytes in 3565 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
+[pid: 4931|app: 0|req: 1/2] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:35:42 2013] GET /favicon.ico => generated 368 bytes in 5938 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4929|app: 0|req: 1/3] 192.168.1.101 () {42 vars in 2220 bytes} [Sat Nov 23 20:35:43 2013] GET /blogs/ => generated 10591 bytes in 7009 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
+[pid: 4931|app: 0|req: 2/4] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:35:50 2013] GET /favicon.ico => generated 368 bytes in 171 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+[pid: 4929|app: 0|req: 2/5] 192.168.1.101 () {42 vars in 2253 bytes} [Sat Nov 23 20:36:03 2013] GET /blogs/search/?q=Arch => generated 4599 bytes in 436 msecs (HTTP/1.1 200) 1 headers in 59 bytes (1 switches on core 0)
+[pid: 4931|app: 0|req: 3/6] 192.168.1.101 () {38 vars in 613 bytes} [Sat Nov 23 20:36:03 2013] GET /favicon.ico => generated 368 bytes in 159 msecs (HTTP/1.1 500) 1 headers in 78 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 3 buried after 1 seconds
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 4 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
