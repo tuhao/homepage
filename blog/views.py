@@ -48,8 +48,11 @@ def sort_blogs(request, sort_id):
 
 def blog_search(request):
     query = request.GET.get('q', None)
-    r = Blog.search.query(query)
-    results = list(r)
+    try:
+        r = Blog.search.query(query)
+        results = list(r)
+    except Exception, e:
+        results = list()
     context = {'results': results, 'query': query, 'search_meta': r._sphinx}
     return render_to_response('blog_search.html', locals(), context_instance=RequestContext(request))
 
