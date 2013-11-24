@@ -27,8 +27,13 @@
           <li class="nav-header">分类</li>
           {%for sort in sorts%}
           <li id="li_{{sort.id}}">
+          {% if sort.blog_count > 0 %}
           <a href="{%url 'blog.views.sort_blogs' sort_id=sort.id %}">{{sort.name|truncatechars:30}}
            ({{sort.blog_count}})</a>
+          {% else %}
+          <a href="javascript:void(0)">{{sort.name|truncatechars:30}}({{sort.blog_count}})</a>
+          {% endif %}
+         
           </li>
           {%endfor%}
         </ul>
@@ -62,9 +67,7 @@
  <div class="span12 well">
   <li class="nav-header">友情链接</li>
   {% for link in links %}
-<p>
-  <a href="{{link.link}}">{{link.name}}</a>
-</p>
+  <a target="_blank" href="{{link.link}}">{{link.name}}</a>
 {% endfor %}
  </div>
 {% endif %}

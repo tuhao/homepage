@@ -11,7 +11,7 @@ from random import randrange
 def paginate_sorts(request):
     sort_list = Sort.objects.annotate(
         blog_count=Count('blog')).all()
-    paginator = Paginator(sort_list, 5)
+    paginator = Paginator(sort_list, 10)
     sort_page = request.GET.get('sort_page')
     try:
         sorts = paginator.page(sort_page)
@@ -41,10 +41,13 @@ def friend_links():
     links = Link.objects.all()
     return links
 
+def new_blogs():
+    blogs = Blog.objects.order_by("-id")[0:10]
+    return blogs
 
 def blogs(request):
     sorts = paginate_sorts(request)
-    blogs = Blog.objects.order_by('pub_date')[0:10]
+    blogs = new_blogs()
     tagclouds = blog_tags()
     links = friend_links()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
@@ -55,7 +58,7 @@ def blog_detail(request, blog_id):
     tags = blog.tags.split(' ')
     tagclouds = blog_tags()
     links = friend_links()
-    blogs = Blog.objects.order_by('pub_date')
+    blogs = new_blogs()
     sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
@@ -64,7 +67,7 @@ def sort_blogs(request, sort_id):
     sort = get_object_or_404(Sort, pk=sort_id)
     sort_blogs = Blog.objects.filter(sort=sort)
     sorts = paginate_sorts(request)
-    blogs = Blog.objects.order_by('pub_date')
+    blogs = new_blogs()
     tagclouds = blog_tags()
     links = friend_links()
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))
