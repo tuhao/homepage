@@ -76,7 +76,7 @@ def blog_detail(request, blog_id):
     tags = blog.tags.split(' ')
     tagclouds = blog_tags()
     links = friend_links()
-    blogs = new_blogs()
+    fresh_blogs = new_blogs()
     sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
 
@@ -85,7 +85,7 @@ def sort_blogs(request, sort_id):
     sort = get_object_or_404(Sort, pk=sort_id)
     sort_blogs = Blog.objects.filter(sort=sort)
     sorts = paginate_sorts(request)
-    blogs = new_blogs()
+    fresh_blogs = new_blogs()
     tagclouds = blog_tags()
     links = friend_links()
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))

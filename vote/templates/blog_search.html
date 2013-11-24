@@ -27,17 +27,22 @@ No results found.
 
 {% load font %}
 {% load nbsp %}
-
+{% load font_content %}
 {% load pagination_tags %}
 {% autopaginate results 10 %}
 {% for b in results %}
             <div class="span8 offset1" >
               <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|striptags|font:query|safe }}</a></h3>
-              <p>{{b.content|striptags|nbsp|font:query|safe|truncatechars:300}}</p>
+             
+              
+              <p>{{b.content|striptags|nbsp|font_content:query|truncatewords:50|safe}}</p>
               <p>(weight: {{ b.sphinx.weight }})</p>
             </div><!--/span   -->
 
 {% endfor %}
+ {% comment %}
+    {{b.content|striptags|nbsp|font:query|safe|truncatechars:300}}</p>
+  {% endcomment %}
 <div class="span8 pagination offset1">
 <h4>{% paginate %}</h4>
 </div>
