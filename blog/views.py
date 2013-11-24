@@ -41,9 +41,11 @@ def friend_links():
     links = Link.objects.all()
     return links
 
+
 def new_blogs():
     blogs = Blog.objects.order_by("-id")[0:10]
     return blogs
+
 
 def blogs(request):
     sorts = paginate_sorts(request)
@@ -53,16 +55,18 @@ def blogs(request):
     links = friend_links()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
+
 def neibor_blog(blog_id):
     prev = None
     next = None
-    prev_blogs = Blog.objects.filter(id__lt= blog_id)
+    prev_blogs = Blog.objects.filter(id__lt=blog_id)
     if len(prev_blogs) > 0:
         prev = prev_blogs[len(prev_blogs) - 1]
-    next_blogs = Blog.objects.filter(id__gt= blog_id)
+    next_blogs = Blog.objects.filter(id__gt=blog_id)
     if len(next_blogs) > 0:
         next = next_blogs[0]
-    return prev,next
+    return prev, next
+
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
@@ -99,7 +103,7 @@ def blog_search(request):
                    query, 'search_meta': r._sphinx}
     else:
         results = list()
-        context = {'results': results}
+        context = {'results': results, 'query': query}
     return render_to_response('blog_search.html', context, context_instance=RequestContext(request))
 
 

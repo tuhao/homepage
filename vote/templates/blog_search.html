@@ -25,15 +25,17 @@ No results found.
 
 </div>
 
+{% load font %}
 {% load nbsp %}
+
 {% load pagination_tags %}
 {% autopaginate results 10 %}
 {% for b in results %}
             <div class="span8 offset1" >
-              <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|truncatechars:50 }}</a></h3>
-              <p>{{b.content|striptags|nbsp|truncatechars:300}}</p>
+              <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|striptags|font:query|safe }}</a></h3>
+              <p>{{b.content|striptags|nbsp|font:query|safe|truncatechars:300}}</p>
               <p>(weight: {{ b.sphinx.weight }})</p>
-            </div><!--/span-->
+            </div><!--/span   -->
 
 {% endfor %}
 <div class="span8 pagination offset1">
