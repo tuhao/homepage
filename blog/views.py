@@ -75,3 +75,7 @@ def blog_search(request):
         results = list()
         context = {'results': results}
     return render_to_response('blog_search.html', context, context_instance=RequestContext(request))
+
+def about(request):
+    abouts = About.objects.all()
+    return render_to_response("about_me.html",locals(),context_instance=RequestContext(request))

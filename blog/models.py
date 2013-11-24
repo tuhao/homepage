@@ -21,3 +21,7 @@ class Blog(models.Model):
 
 class Counter(models.Model):
     max_doc_id = models.IntegerField(default=0)
+
+class About(models.Model):
+    title = models.CharField(max_length=50)
+    content = models.TextField(r'content',max_length=1000,default='',blank=True)

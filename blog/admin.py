@@ -11,3 +11,12 @@ class BlogAdmin(admin.ModelAdmin):
 		'/tinymce/config.js',)
 
 admin.site.register(Blog,BlogAdmin)
+
+class AboutAdmin(admin.BlogAdmin):
+	list_display = ('id','title')
+	class Media:
+		js = (
+		'/tinymce/tinymce.min.js',
+		'/tinymce/config.js',)
+
+admin.site.register(About,AboutAdmin)

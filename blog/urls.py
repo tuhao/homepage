@@ -20,5 +20,7 @@ urlpatterns = patterns('',
                        url(r'^sort/(?P<sort_id>\d+)/$', sort_blogs),
 
                        url(r'^search/$',blog_search),
+
+                       url(r'^about/$',about),
                        
                        )
