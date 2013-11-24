@@ -50,7 +50,7 @@ def new_blogs():
 def blogs(request):
     sorts = paginate_sorts(request)
     fresh_blogs = new_blogs()
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.order_by("-id")
     tagclouds = blog_tags()
     links = friend_links()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
