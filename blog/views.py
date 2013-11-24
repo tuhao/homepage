@@ -52,9 +52,22 @@ def blogs(request):
     links = friend_links()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
+def neibor_blog(blog_id):
+    prev = None
+    next = None
+    prev_blogs = Blog.objects.filter(id__lt= blog_id)
+    if len(prev_blogs) > 0:
+        prev = prev_blogs[len(prev_blogs) - 1]
+    next_blogs = Blog.objects.filter(id__gt= blog_id)
+    if len(next_blogs) > 0:
+        next = next_blogs[0]
+    return prev,next
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
+    neibor_blogs = neibor_blog(blog_id)
+    prev_blog = neibor_blogs[0]
+    next_blog = neibor_blogs[1]
     tags = blog.tags.split(' ')
     tagclouds = blog_tags()
     links = friend_links()

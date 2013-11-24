@@ -21,6 +21,23 @@
               	{{blog.content}}
               	{%endautoescape%}
                </p>
+               <p>上一篇:
+               {% if prev_blog %}
+               <a href="{%url 'blog.views.blog_detail' prev_blog.id %}">{{prev_blog.title}}</a>
+               {% else %}
+               没有了
+              {% endif %}
+               </p>
+
+               <p>
+               下一篇:
+               {% if next_blog %}
+               <a href="{%url 'blog.views.blog_detail' next_blog.id %}">{{next_blog.title}}</a>
+               {% else %}
+               没有了
+              {% endif %}
+               </p>
+
                <p>{%duoshuo_comments 'yasir'%}
 
                </p>
