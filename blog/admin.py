@@ -20,3 +20,5 @@ class AboutAdmin(admin.BlogAdmin):
 		'/tinymce/config.js',)
 
 admin.site.register(About,AboutAdmin)
+
+admin.site.register(Link)

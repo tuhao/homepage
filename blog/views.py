@@ -37,10 +37,16 @@ def blog_tags():
     return tagclouds
 
 
+def friend_links():
+    links = Link.objects.all()
+    return links
+
+
 def blogs(request):
     sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')[0:10]
     tagclouds = blog_tags()
+    links = friend_links()
     return render_to_response("blog_list.html", locals(), context_instance=RequestContext(request))
 
 
@@ -48,6 +54,7 @@ def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     tags = blog.tags.split(' ')
     tagclouds = blog_tags()
+    links = friend_links()
     blogs = Blog.objects.order_by('pub_date')
     sorts = paginate_sorts(request)
     return render_to_response("blog_detail.html", locals(), context_instance=RequestContext(request))
@@ -59,6 +66,7 @@ def sort_blogs(request, sort_id):
     sorts = paginate_sorts(request)
     blogs = Blog.objects.order_by('pub_date')
     tagclouds = blog_tags()
+    links = friend_links()
     return render_to_response("blog_sort.html", locals(), context_instance=RequestContext(request))
 
 
@@ -70,12 +78,14 @@ def blog_search(request):
             results = list(r)
         except Exception, e:
             results = list()
-        context = {'results': results, 'query': query, 'search_meta': r._sphinx}
+        context = {'results': results, 'query':
+                   query, 'search_meta': r._sphinx}
     else:
         results = list()
         context = {'results': results}
     return render_to_response('blog_search.html', context, context_instance=RequestContext(request))
 
+
 def about(request):
     abouts = About.objects.all()
-    return render_to_response("about_me.html",locals(),context_instance=RequestContext(request))
+    return render_to_response("about_me.html", locals(), context_instance=RequestContext(request))

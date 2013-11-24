@@ -27,7 +27,7 @@
 </script>
 <ul>
 {%for choise in poll.choise_set.all %}
-<li>{{choise.choise_text}} -- {{choise.votes}} votes </li>
+<li>{{choise.choise_text}} -- {{choise.votes}} 票 </li>
 {%endfor%}
 </ul>
 {%load pagination_tags%}

@@ -10,7 +10,7 @@
 <div class="span12 well bs-docs-sidebar">
    <!-- blogs begin-->
         <ul class="nav nav-list bs-docs-sidenav">
-         <li class="nav-header">Fresh Blogs </li>
+         <li class="nav-header">最新</li>
           {%for blog in blogs%}
           <li>
             <a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}" >{{blog.title|truncatechars:23}}</a>
@@ -24,7 +24,7 @@
 <div class="span12 well bs-docs-sidebar">
         <!--sorts begin-->
         <ul class="nav nav-list bs-docs-sidenav">
-          <li class="nav-header">Classified</li>
+          <li class="nav-header">分类</li>
           {%for sort in sorts%}
           <li id="li_{{sort.id}}">
           <a href="{%url 'blog.views.sort_blogs' sort_id=sort.id %}">{{sort.name|truncatechars:30}}
@@ -58,6 +58,15 @@
 </p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
  </div>
 
+ <div class="span12 well">
+  <li class="nav-header">友情链接</li>
+  {% for link in links %}
+<p>
+  <a href="{{link.link}}">{{link.name}}</a>
+</p>
+{% endfor %}
+ </div>
+
  </div>
 </div>
 <script type="text/javascript" src="/js/swfobject.js"></script>
@@ -78,6 +87,8 @@ $(document).ready(function(){
   cloud.write("cloud");
 });
 </script>
+
+
 
 {%endblock%}
 {%block content%}
