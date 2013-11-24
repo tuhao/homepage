@@ -18,7 +18,7 @@ def index(request):
     return render_to_response('index.html')
 
 
-#def login(request):
+# def login(request):
 #    username = ''
 #    message = []
 #    if request.method == 'POST':
@@ -35,16 +35,18 @@ def index(request):
 #        user = request.session.get('user', None)
 #        if user and user.is_authenticated():
 #            return render_to_response('index.html', context_instance=RequestContext(request))
-#    return render_to_response('login.html', {'username': username, 'message': ''.join(message)}, context_instance=RequestContext(request))
+# return render_to_response('login.html', {'username': username,
+# 'message': ''.join(message)}, context_instance=RequestContext(request))
 
 #
-#def logout(request):
+# def logout(request):
 #    auth.logout(request)
 #    request.session['user'] = None
-#    return render_to_response('login.html', context_instance=RequestContext(request))
+# return render_to_response('login.html',
+# context_instance=RequestContext(request))
 
 
-#def regist(request):
+# def regist(request):
 #    if request.method == 'POST':
 #        form = RegistForm(data=request.POST)
 #        if form.is_valid():
@@ -56,7 +58,8 @@ def index(request):
 #            return render_to_response("login.html", {'username': cd['username']})
 #        else:
 #            return render_to_response("regist.html", {'username': request.POST.get('username'), 'email': request.POST.get('email'), 'message': form.errors}, context_instance=RequestContext(request))
-#    return render_to_response("regist.html", context_instance=RequestContext(request))
+# return render_to_response("regist.html",
+# context_instance=RequestContext(request))
 
 
 def get_client_ip(request):
@@ -84,6 +87,7 @@ def vote(request, poll_id):
         return render_to_response("vote_detail.html", locals(), context_instance=RequestContext(request))
     else:
         #poll_record = Record.objects.filter(user=user, poll=poll)
+        
         poll_record = Record.objects.filter(ip=ip, poll=poll)
         if poll_record:
             error = 'You had already made a choise'
@@ -91,8 +95,13 @@ def vote(request, poll_id):
         selected_choise.votes += 1
         selected_choise.save()
         #new_record = Record.objects.create(poll=poll, user=user, choise=selected_choise)
-        new_record = Record.objects.create(
-            poll=poll, ip=ip, choise=selected_choise)
+        try:
+            name = request.POST.get('name', None)
+            new_record = Record.objects.create(
+                poll=poll, ip=ip, choise=selected_choise, name=name)
+        except Exception, e:
+            new_record = Record.objects.create(
+                poll=poll, ip=ip, choise=selected_choise)
         new_record.save()
         return HttpResponseRedirect(reverse('users.views.results', args=(poll.id,)))
 

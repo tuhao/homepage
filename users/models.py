@@ -23,6 +23,7 @@ class Choise(models.Model):
 class Record(models.Model):
     poll = models.ForeignKey(Poll)
     #user = models.ForeignKey(User)
+    name = models.CharField(max_length=20,null=True)
     ip = models.CharField(max_length = 32)
     choise = models.ForeignKey(Choise)
 

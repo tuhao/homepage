@@ -7,10 +7,11 @@ from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from random import randrange
 
+
 def paginate_sorts(request):
     sort_list = Sort.objects.annotate(
         blog_count=Count('blog')).all()
-    paginator = Paginator(sort_list,5)
+    paginator = Paginator(sort_list, 5)
     sort_page = request.GET.get('sort_page')
     try:
         sorts = paginator.page(sort_page)
@@ -20,10 +21,11 @@ def paginate_sorts(request):
         sorts = paginator.page(paginator.num_pages)
     return sorts
 
+
 def blog_tags():
     total = Blog.objects.all().count()
     try:
-        start = randrange(0,int(total) - 20)
+        start = randrange(0, int(total) - 20)
     except ValueError:
         start = 0
     blogs = Blog.objects.order_by('pub_date')[start:start + 20]
@@ -33,7 +35,7 @@ def blog_tags():
         for tag in tag_list:
             tagclouds.add(tag)
     return tagclouds
-    
+
 
 def blogs(request):
     sorts = paginate_sorts(request)
@@ -62,10 +64,14 @@ def sort_blogs(request, sort_id):
 
 def blog_search(request):
     query = request.GET.get('q', None)
-    try:
-        r = Blog.search.query(query)
-        results = list(r)
-    except Exception, e:
+    if query:
+        try:
+            r = Blog.search.query(query)
+            results = list(r)
+        except Exception, e:
+            results = list()
+        context = {'results': results, 'query': query, 'search_meta': r._sphinx}
+    else:
         results = list()
-    context = {'results': results, 'query': query, 'search_meta': r._sphinx}
+        context = {'results': results}
     return render_to_response('blog_search.html', context, context_instance=RequestContext(request))

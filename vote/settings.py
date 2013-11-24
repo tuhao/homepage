@@ -1,8 +1,8 @@
 # Django settings for vote project.
 
-DEBUG = False
-TEMPLATE_DEBUG = None
-
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+ALLOWED_HOSTS = ['192.168.1.102']
 
 ADMINS = (
     ('yasir', '124915122@qq.com'),
@@ -24,7 +24,6 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['192.168.1.102']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

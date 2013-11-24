@@ -35,7 +35,7 @@
 <table class="table">
 {%for record in poll_records%}
 <tr>
-<td>{{record.ip|default:'visitor'|truncatechars:6|add:'.*.*'}}  has voted to {{record.choise.choise_text}}</td>
+<td>{{record.name|default:'游客'}}({{record.ip|default:'visitor'|truncatechars:6|add:'.*.*'}})  has voted to {{record.choise.choise_text}}</td>
 </tr>
 {%endfor%}
 </table>

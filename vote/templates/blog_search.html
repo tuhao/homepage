@@ -5,7 +5,7 @@
 {%block content%}
 <script type="text/javascript">
     $(document).ready(function(){
-      changeActive(-1);
+      changeActive(1);
 
       });
 
@@ -13,10 +13,13 @@
 <div class="row-fluid">
 <div class="span8 offset1">
 	{% if results %}
+  Found 
 <strong>{{ search_meta.total_found }}</strong> results.
+{% comment %}
 search_meta object dump: {{ search_meta }}
+{% endcomment %}
+
 {% else %}
-Sorry,
 No results found.
 {% endif %}
 
@@ -30,7 +33,6 @@ No results found.
               <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|truncatechars:50 }}</a></h3>
               <p>{{b.content|striptags|nbsp|truncatechars:300}}</p>
               <p>(weight: {{ b.sphinx.weight }})</p>
-              <p>blog.sphinx object dump: {{ b.sphinx }}</p>
             </div><!--/span-->
 
 {% endfor %}
