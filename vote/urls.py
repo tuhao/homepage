@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     
     #account
-    url(r'^$',index),    
+    url(r'^$',blogs),    
     #url(r'^accounts/login/$',login),
     #url(r'^accounts/logout/$',logout),
     #url(r'^accounts/regist/$',regist),
@@ -33,6 +33,9 @@ urlpatterns = patterns('',
     #blog
     url(r'^blogs/',include('blog.urls')),
     
+    #about me
+    url(r'^about/$',about_me),
+
     #static debug
     url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
     url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/js'}),

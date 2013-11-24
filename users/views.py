@@ -119,3 +119,6 @@ def results(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
     poll_records = Record.objects.filter(poll=poll)
     return render_to_response("vote_result.html", locals(), context_instance=RequestContext(request))
+
+def about_me(request):
+    return render_to_response("about_me.html",context_instance=RequestContext(request))

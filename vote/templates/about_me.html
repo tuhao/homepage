@@ -1,0 +1,18 @@
+{%extends "base_index.html"%}
+{%block title%}About me{%endblock%}
+{%block sidebar%}{%endblock%}
+{%block content%}
+<script type="text/javascript">
+    $(document).ready(changeActive(2));
+</script>
+
+
+{%load duoshuo_tags%}
+<div class="span9">
+<p>喜欢喝水，走路很快，和熟人滔滔不绝，陌生人前沉默寡言，编码编到萎靡，K歌吼到破嗓，游泳练到抽筋。
+一位不拘一格的追梦人</p>
+<p>{%duoshuo_comments 'yasir'%}
+
+</p>
+</div>
+{%endblock%}
