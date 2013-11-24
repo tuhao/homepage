@@ -11,7 +11,7 @@
    <!-- blogs begin-->
         <ul class="nav nav-list bs-docs-sidenav">
          <li class="nav-header">最新</li>
-          {%for blog in blogs%}
+          {%for blog in fresh_blogs%}
           <li>
             <a href="{%url 'blog.views.blog_detail' blog_id=blog.id %}" >{{blog.title|truncatechars:23}}</a>
           </li>
