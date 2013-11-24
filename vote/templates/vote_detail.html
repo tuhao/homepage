@@ -1,5 +1,5 @@
 {%extends "base_index.html"%}
-{%block title%}Yasir的投票{%endblock%}
+{%block title%}Yasir发起的投票{%endblock%}
 {%block sidebar%}
 <div class="span3">
 
@@ -68,7 +68,10 @@ function choose(id){
 </table>
 </form>
 
-</div>
-{%endif%}
 
+
+{% else %}
+<p>暂时没有投票</p>
+{%endif%}
+</div>
 {%endblock%}

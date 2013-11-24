@@ -58,6 +58,7 @@
 </p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
  </div>
 
+{% if links%}
  <div class="span12 well">
   <li class="nav-header">友情链接</li>
   {% for link in links %}
@@ -66,7 +67,7 @@
 </p>
 {% endfor %}
  </div>
-
+{% endif %}
  </div>
 </div>
 <script type="text/javascript" src="/static/js/swfobject.js"></script>
