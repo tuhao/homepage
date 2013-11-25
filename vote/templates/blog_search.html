@@ -33,13 +33,8 @@ No results found.
 {% for b in results %}
             <div class="span8 offset1" >
               <h3><a href="{% url 'blog.views.blog_detail' blog_id=b.id %}">{{ b.title|striptags|font:query|safe }}</a></h3>
-<<<<<<< HEAD
-              <p>{{b.content|striptags|nbsp|font_content:query|truncatewords:50|safe}}</p>
-=======
-             
               
               <p>{{b.content|striptags|nbsp|truncatechars:300|font_content:query|safe}}</p>
->>>>>>> 00ce7767bf4128f2f815807ac6c40c0715159a0f
               <p>(weight: {{ b.sphinx.weight }})</p>
             </div><!--/span   -->
 
