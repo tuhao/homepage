@@ -24,6 +24,8 @@ urlpatterns = patterns('',
     #url(r'^accounts/logout/$',logout),
     #url(r'^accounts/regist/$',regist),
     
+    #google
+    #url(r'^google',google),
     #admin
     url(r'^admin/', include(admin.site.urls)),
     
