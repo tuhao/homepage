@@ -1,6 +1,6 @@
 # Django settings for vote project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['www.yasir.pw']
 
