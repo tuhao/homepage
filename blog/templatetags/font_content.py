@@ -5,7 +5,7 @@ register = template.Library()
 @register.filter()
 def font_content(str, keyword):
     less = len(keyword)
-    key_group_str = r'[\s\S]{,20}' + keyword + r'[\s\S]{,50}'
+    key_group_str = r'[\s\S]{,40}' + keyword + r'[\s\S]{,80}'
     key_group_re = re.compile(key_group_str)
     result = ''
     font = re.compile(keyword)
