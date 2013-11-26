@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{%block title%}Yasir的主页{%endblock%}</title>
-    <!--response view-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css">
-    <!--response view stop-->
+    <link  type="text/css" href="/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+
     <meta name="keywords" content="Yasir,博客,主页,编程,程序员,程序猿,算法,IT,Java,Python,Hadoop,
     Linux,数据挖掘,搜索引擎,分布式,Ikfly">
     {%block meta_desc%}
     <meta name="description" content="Yasir,Yasir的主页，Yasir的博客，致力于打造交流与分享知识的平台，学海无涯，学以致用，在实践中学习，学习中分享与成长，用更好的思想和程序改变世界，让生活更美好 – www.yasir.pw ">
     {%endblock%}
     <meta name="author" content="astro.liuhang#gmail.com">
-  </head>
-  <body data-spy="scroll"><!-- data-target=".bs-docs-sidebar"-->
-<!-- Le styles -->
-    
+
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -35,6 +32,11 @@
         }
       }
     </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    
+  </head>
+  <body><!-- data-target=".bs-docs-sidebar"-->
+<!-- Le styles -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -77,13 +79,13 @@
           <a class="brand" href="/">Yasir的主页</a>
           <div id="nav-div" class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-	      {%comment%}
+        {%comment%}
         {%if user.is_authenticated%}
-	      Welcome! <a href="#" class="navbar-link">{{user.username}}</a>
-	      <a class="navbar-link" href="/accounts/logout" >Logout</a>
-	      {%else%}
-	      <a href="/accounts/login" class="navbar-link">Login</a>
-	      {%endif%}
+        Welcome! <a href="#" class="navbar-link">{{user.username}}</a>
+        <a class="navbar-link" href="/accounts/logout" >Logout</a>
+        {%else%}
+        <a href="/accounts/login" class="navbar-link">Login</a>
+        {%endif%}
         {%endcomment%}
             </p>
             <ul class="nav">
@@ -91,7 +93,7 @@
               <li class="active"><a href="/">主页</a></li>
                {%endcomment%}
               <li class="active"><a href="/blogs/">博客</a></li>
-	           <li><a href="/vote/">投票</a><li>
+             <li><a href="/vote/">投票</a><li>
               <li><a href="/blogs/about/">关于Yasir</a></li>
             </ul>
             <div>
@@ -107,7 +109,7 @@
     <div class="container-fluid">
       <div class="row-fluid">
 
-	{%block sidebar%}  
+  {%block sidebar%}  
   <div class="span3">
           <div class="well sidebar-nav" >
             <ul class="nav nav-list">
@@ -130,12 +132,12 @@
             </ul>
           </div><!--/.well -->
              </div><!--/span-->
-	  {%endblock%}      
+    {%endblock%}      
      
        
 
 
-	 {%block content%}
+   {%block content%}
   <div class="span9">
           <div class="hero-unit">
             <h1>Hello, world!</h1>
@@ -155,9 +157,9 @@
             </div><!--/span-->
           </div><!--/row-->
            </div><!--/span-->
-	  {%endblock%}
+    {%endblock%}
        
-	
+  
 
       </div><!--/row-->
 
