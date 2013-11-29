@@ -7,8 +7,8 @@ class BlogAdmin(admin.ModelAdmin):
 	list_display = ('id','title','sort','pub_date','tags')
 	class Media:
 		js = (
-		'/static/tinymce/tinymce.min.js',
-		'/static/tinymce/config.js',)
+		'/tinymce/tinymce.min.js',
+		'/tinymce/config.js',)
 
 admin.site.register(Blog,BlogAdmin)
 
@@ -16,8 +16,8 @@ class AboutAdmin(admin.ModelAdmin):
 	list_display = ('id','title')
 	class Media:
 		js = (
-		'/static/tinymce/tinymce.min.js',
-		'/static/tinymce/config.js',)
+		'/tinymce/tinymce.min.js',
+		'/tinymce/config.js',)
 
 admin.site.register(About,AboutAdmin)
 
