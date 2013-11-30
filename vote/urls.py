@@ -6,7 +6,9 @@ from users.views import *
 from blog.views import *
 import os.path
 
+
 admin.autodiscover()
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -18,6 +20,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     
+    url(r'admin/', include(admin.site.urls)),
+
     #account
     url(r'^$',blogs),    
     #url(r'^accounts/login/$',login),
@@ -27,7 +31,7 @@ urlpatterns = patterns('',
     #google
     #url(r'^google',google),
     #admin
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/', include(admin.site.urls)),
     
     #vote
     url(r'^vote/',include('users.urls')),
@@ -36,8 +40,8 @@ urlpatterns = patterns('',
     url(r'^blogs/',include('blog.urls')),
 
     #debug
+    #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])}),
     #url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
-    #url(r'^js/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/js'}),
     #url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/charts'}),
     #url(r'^img/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/img'}),
     #url(r'^tinymce/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/tinymce'}),
