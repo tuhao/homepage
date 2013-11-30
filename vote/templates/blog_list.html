@@ -73,12 +73,12 @@
 </div>
 {% load static from staticfiles %}
 
-<script type="text/javascript" src="/js/swfobject.js" ></script>
+<script type="text/javascript" src="{% static 'js/swfobject.js' %}" ></script>
 <script type="text/javascript">
 $(document).ready(function(){
   var innerDivp = $('#cloud p').html();
   var code = encodeURIComponent('<tags>' + innerDivp + '</tags>');
-  var cloud = new SWFObject("/js/tagcloud.swf", "tagcloudflash", "270", "240", "9", "#ffffff");
+  var cloud = new SWFObject("{% static 'js/tagcloud.swf' %}", "tagcloudflash", "270", "240", "9", "#ffffff");
   cloud.addParam("wmode", "transparent");
   cloud.addParam("allowScriptAccess", "always");
   cloud.addVariable("tcolor", "0x000000");

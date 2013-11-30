@@ -19,7 +19,9 @@ import os,sys
 # if running multiple sites in the same mod_wsgi process. To fix this, use
 # mod_wsgi daemon mode with each site in its own daemon process, or use
 # os.environ["DJANGO_SETTINGS_MODULE"] = "vote.settings"
-sys.path.append('/srv/httpd')
+
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote.settings")
 
 # This application object is used by any WSGI server configured to use this

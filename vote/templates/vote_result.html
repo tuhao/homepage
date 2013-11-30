@@ -5,12 +5,12 @@
 {%block content%}
 
 {% load static from staticfiles %}
-<link href="/charts/prettify.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/charts/jquery.min.js"></script>
-<script type="text/javascript" src="/charts/FusionCharts.js"></script>
-<script type="text/javascript" src="/charts/prettify.js"></script>
-<script type="text/javascript" src="/charts/json2.js"></script>
-<script type="text/javascript" src="/charts/lib.js" ></script>
+<link href="{% static 'charts/prettify.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'charts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'charts/FusionCharts.js' %}"></script>
+<script type="text/javascript" src="{% static 'charts/prettify.js' %}"></script>
+<script type="text/javascript" src="{% static 'charts/json2.js' %}"></script>
+<script type="text/javascript" src="{% static 'charts/lib.js' %}" ></script>
 
 <div id="chartdiv" align="left">Chart will load here</div>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
     {%endfor%}
     dataString += '</chart>';
   if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER);
-  var chart = new FusionCharts("/charts/Pie2D.swf' %}","ChartId","560","400","0","0");
+  var chart = new FusionCharts("{% static 'charts/Pie2D.swf' %}","ChartId","560","400","0","0");
   chart.setXMLData(dataString);
   chart.render("chartdiv");
 </script>
