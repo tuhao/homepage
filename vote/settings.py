@@ -1,6 +1,6 @@
 # Django settings for vote project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -138,11 +138,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    #'django.contrib.admin',
-    'xadmin',
-    'crispy_forms',
-    'reversion',
-    #'admin',
+    'django.contrib.admin',
+    #'xadmin',
+    #'crispy_forms',
+    #'reversion',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'users',
