@@ -2,7 +2,7 @@
 
 DEBUG = False
 TEMPLATE_DEBUG = None
-ALLOWED_HOSTS = ['yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
+ALLOWED_HOSTS = ['114.92.142.236','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
 ADMINS = (
     ('yasir', '124915122@qq.com'),
