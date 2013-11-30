@@ -4,12 +4,13 @@
 {%endblock%}
 {%block content%}
 
-<link href="/charts/prettify.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/charts/jquery.min.js"></script>
-<script type="text/javascript" src="/charts/FusionCharts.js"></script>
-<script type="text/javascript" src="/charts/prettify.js"></script>
-<script type="text/javascript" src="/charts/json2.js"></script>
-<script type="text/javascript" src="/charts/lib.js" ></script>
+{% load static from staticfiles %}
+<link href="{% static 'charts/prettify.css'%}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'charts/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'charts/FusionCharts.js'%}"></script>
+<script type="text/javascript" src="{% static 'charts/prettify.js'%}"></script>
+<script type="text/javascript" src="{% static 'charts/json2.js'%}"></script>
+<script type="text/javascript" src="{% static 'charts/lib.js'%}/" ></script>
 
 <div id="chartdiv" align="left">Chart will load here</div>
 <script type="text/javascript">
