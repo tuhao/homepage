@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
