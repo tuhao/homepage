@@ -1,6 +1,7 @@
 # Django settings for vote project.
+import os.path
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -68,14 +69,22 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
+if DEBUG:
+    STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    
-    '/srv/uwsgi/homepage/vote/static',
-    #'/home/yasir/Django/homepage/vote/static',
-)
+         '/home/yasir/Django/homepage/vote/static',
+    )
+else:
+     STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+         '/srv/uwsgi/homepage/vote/static',
+    )
+
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -111,7 +120,7 @@ ROOT_URLCONF = 'vote.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'vote.wsgi.application'
 
-import os.path
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
