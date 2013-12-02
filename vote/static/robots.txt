@@ -1,6 +1,5 @@
 User-Agent: Baiduspider
-Disallow: /charts
-Disallow: /tinymce
-Disallow: /swf
-Disallow: /css
-Disallow: /js
+Disallow: /static
+
+User-Agent:Googlebot
+Disallow:/static
