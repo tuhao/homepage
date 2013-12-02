@@ -3,11 +3,7 @@ import os.path
 
 DEBUG = False
 TEMPLATE_DEBUG = None
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['114.92.142.236','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
-=======
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
->>>>>>> c7c9e63f38508f861b4bc33ba9514f54a32ac257
 
 ADMINS = (
     ('yasir', '124915122@qq.com'),
