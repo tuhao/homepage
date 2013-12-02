@@ -7,10 +7,6 @@ from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from random import randrange
 
-def google(request):
-    return render_to_response('googleaf43730c97dabc98.html')
-
-
 def paginate_sorts(request):
     sort_list = Sort.objects.annotate(
         blog_count=Count('blog')).all()
