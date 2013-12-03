@@ -5,6 +5,8 @@ DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
+MARKDOWN_EDITOR_SKIN = 'simple'
+
 ADMINS = (
     ('yasir', '124915122@qq.com'),
     )

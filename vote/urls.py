@@ -6,7 +6,6 @@ from users.views import *
 from blog.views import *
 import os.path
 
-
 admin.autodiscover()
 
 
@@ -20,7 +19,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     
-    url(r'admin/', include(admin.site.urls)),
+    
+    url(r'^admin/', include(admin.site.urls)),
 
     url(r'^markdown/',include('django_markdown.urls')),
     #account

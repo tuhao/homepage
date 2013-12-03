@@ -15,6 +15,7 @@ class BlogAdmin(admin.ModelAdmin):
 		settings.STATIC_URL + 'tinymce/tinymce.min.js',
 		settings.STATIC_URL + 'tinymce/config.js',)
 
+#admin.site.unregister(Blog)
 #admin.site.register(Blog,BlogAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
