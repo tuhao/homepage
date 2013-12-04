@@ -2,9 +2,42 @@
 {% block title%}markdown{% endblock %}
 {%block sidebar%}{%endblock%}
 {% block content %}
+
+
+{% load static %}
+<link type="text/css" href="{% static 'django_markdown/markdown.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'django_markdown/preview.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'django_markdown/skins/simple/style.css' %}"  media="screen" rel="stylesheet">
+<script type="text/javascript" src="{% static 'django_markdown/jquery.markitup.js' %}"></script>
+<script type="text/javascript" src="{% static 'django_markdown/markdown.js' %}"></script>
+{% comment%}
+
+{% endcomment %}
+
+<script type="text/javascript">
+// Initialize editor using default settings extended with ``extraSettings``
+$(document).ready(function(){
+  miu.init("blog_content");
+
+
+
+// Get certain editor
+miu.editors("blog_content");
+});
+
+</script>
+
 <div class="span6 offset2">
+
+
+
       <form class="form-horizontal" action="{% url 'note.views.add' %}" method="post">
         {%csrf_token %}
+   {% comment %}
+        {{form}}
+        
+ {% endcomment %}
+     
         <div class="control-group">
         <label class="control-label" for="sort_id">分类</label>
         <div class="controls" >
@@ -35,7 +68,6 @@
        <label class="control-label" for="blog_content">内容</label>
        <div class="controls">
            <textarea id="blog_content" name="blog_content" rows="5">{{blog_content}} </textarea>
-         
         </div>
     </div>
 
@@ -44,9 +76,7 @@
           <button class="btn btn-large btn-primary" type="submit" >提交</button>
         </div>
     </div>
-      
-      
-
+     
       </form>
 
 	{%if message%}

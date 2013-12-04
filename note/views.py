@@ -5,7 +5,7 @@ from blog.models import Blog,Sort
 from django.contrib import auth
 from django.core.urlresolvers import reverse
 #from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from note.forms import MarkdownForm
 
