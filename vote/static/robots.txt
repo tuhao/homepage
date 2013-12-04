@@ -1,5 +1,9 @@
 User-Agent: Baiduspider
 Disallow: /static
+Disallow: /xadmin
+Disallow: /admin
 
 User-Agent:Googlebot
-Disallow:/static
+Disallow: /static
+Disallow: /xadmin
+DIsallow: /admin
