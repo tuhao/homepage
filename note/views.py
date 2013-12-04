@@ -1,15 +1,15 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from blog.models import *
+from blog.models import Blog,Sort
 from django.contrib import auth
-from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+#from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from note.forms import MarkdownForm
 
 #from users.forms import RegistForm
-
 
 
 def login(request):
@@ -28,23 +28,36 @@ def login(request):
    else:
        user = request.session.get('user', None)
        if user and user.is_authenticated():
-           return render_to_response('note_add.html', context_instance=RequestContext(request))
-   return render_to_response('login.html', {'username': username,'message': ''.join(message)}, context_instance=RequestContext(request))
+           return HttpResponseRedirect(reverse('note.views.add'))
+   return render_to_response('login.html', {'username': username, 'message': ''.join(message)}, context_instance=RequestContext(request))
 
 
 def logout(request):
    auth.logout(request)
    request.session['user'] = None
-   return render_to_response('login.html',context_instance=RequestContext(request))
+   return render_to_response('login.html', context_instance=RequestContext(request))
 
-#def add(request):
-#	if request.method == 'POST':
-#		form = MarkdownForm(data = request.POST)
-#		if form.is_valid():
-#			cd = form.cleaned_data
-#			sort = Sort.
-#			new_blog = Blog.objects.create_blog(
-#				sort=cd[''])
+#@login_required
+
+
+def add(request):
+  if request.method == 'POST':
+    form = MarkdownForm(data=request.POST)
+    if form.is_valid():
+      cd = form.cleaned_data
+      sort = Sort.objects.get(id=cd['sort_id'])
+      new_blog = Blog.objects.create(sort=sort, title=cd['blog_title'], content=cd['blog_content'], tags=cd['blog_tags'])
+      new_blog.save()
+      message = 'success'
+    else:
+      sort_id = request.POST.get('sort_id')
+      blog_title = request.POST.get('blog_title')
+      blog_tags = request.POST.get('blog_tags')
+      blog_content = request.POST.get('blog_content')
+      message = form.errors
+  sorts = Sort.objects.all()
+  return render_to_response("note_add.html",locals(),context_instance=RequestContext(request))
+			
 
 # def regist(request):
 #    if request.method == 'POST':
