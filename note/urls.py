@@ -4,4 +4,5 @@ from note.views import *
 urlpatterns = patterns('',
 	url(r'^$',login),
 	url(r'^add/',add),
+	url(r'^logout',logout),
 	)

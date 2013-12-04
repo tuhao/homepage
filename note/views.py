@@ -22,7 +22,7 @@ def login(request):
        if user is not None:
            auth.login(request, user)
            request.session['user'] = user
-           return render_to_response('note_add.html', context_instance=RequestContext(request))
+           return  HttpResponseRedirect(reverse('note.views.add'))
        else:
            message.append('username or password not correct')
    else:
@@ -37,9 +37,9 @@ def logout(request):
    request.session['user'] = None
    return render_to_response('login.html', context_instance=RequestContext(request))
 
-#@login_required
 
 
+@login_required
 def add(request):
   if request.method == 'POST':
     form = MarkdownForm(data=request.POST)
