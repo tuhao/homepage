@@ -1,7 +1,7 @@
 
 import os
-directory = os.listdir('.')
-for filename in directory:
-    if filename[-3:] == 'pyc':
-        print '- ' + filename
-        os.remove(filename)
+
+for item in os.walk("."):
+	for filename in item[2]:
+		if filename[-4:] == '.pyc':
+			os.remove(os.path.join(item[0],filename))
