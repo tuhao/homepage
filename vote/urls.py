@@ -6,8 +6,8 @@ from users.views import *
 from blog.views import *
 import os.path
 
-from django_markdown import flatpages
-flatpages.register()
+#from django_markdown import flatpages
+#flatpages.register()
 
 admin.autodiscover()
 
