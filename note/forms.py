@@ -3,10 +3,10 @@ from django_markdown.widgets import MarkdownWidget
 from blog.models import Sort,Blog
 
 class MarkdownForm(forms.Form):
-    sort_id = forms.CharField()
+    sort_id = forms.ModelChoiceField(queryset=Sort.objects.all())
     blog_title = forms.CharField()
-    blog_content = forms.CharField(widget=MarkdownWidget())
     blog_tags = forms.CharField()
+    blog_content = forms.CharField(widget=MarkdownWidget())
 
 
     def clean_sort_id(self):
@@ -14,7 +14,7 @@ class MarkdownForm(forms.Form):
         if sort_id == "0":
         	raise forms.ValidationError("Sort must be chosed")
         try:
-        	exist_sort = Sort.objects.get(id=int(sort_id))
+        	exist_sort = Sort.objects.get(name=sort_id)
         except Sort.DoesNotExist:
         	raise forms.ValidationError("sort does not exits")
         return sort_id

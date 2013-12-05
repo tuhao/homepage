@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from note.forms import MarkdownForm
+import markdown
 
 #from users.forms import RegistForm
 
@@ -45,8 +46,10 @@ def add(request):
     form = MarkdownForm(data=request.POST)
     if form.is_valid():
       cd = form.cleaned_data
-      sort = Sort.objects.get(id=cd['sort_id'])
-      new_blog = Blog.objects.create(sort=sort, title=cd['blog_title'], content=cd['blog_content'], tags=cd['blog_tags'])
+      sort = Sort.objects.get(name=cd['sort_id'])
+      content = cd['blog_content']
+      html = markdown.markdown(content)
+      new_blog = Blog.objects.create(sort=sort, title=cd['blog_title'], content=html, tags=cd['blog_tags'])
       new_blog.save()
       message = 'success'
     else:
@@ -55,7 +58,8 @@ def add(request):
       blog_tags = request.POST.get('blog_tags')
       blog_content = request.POST.get('blog_content')
       message = form.errors
-  sorts = Sort.objects.all()
+  else:
+    form = MarkdownForm()
   return render_to_response("note_add.html",locals(),context_instance=RequestContext(request))
 			
 
