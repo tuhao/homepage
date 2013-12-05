@@ -1,0 +1,36 @@
+{% extends "base_index.html" %}
+{% block title%}markdown{% endblock %}
+{%block sidebar%}{%endblock%}
+{% block content %}
+
+
+{% load static %}
+<link type="text/css" href="{% static 'django_markdown/markdown.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'django_markdown/preview.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'django_markdown/skins/simple/style.css' %}"  media="screen" rel="stylesheet">
+<script type="text/javascript" src="{% static 'django_markdown/jquery.markitup.js' %}"></script>
+<script type="text/javascript" src="{% static 'django_markdown/markdown.js' %}"></script>
+
+<div class="span6 offset2">
+
+      <form class="form-horizontal" action="{% url 'note.views.add' %}" method="post">
+        {%csrf_token %}
+  {{form}}
+     <div class="control-group">
+       <div class="controls">
+          <button class="btn btn-large btn-primary" type="submit" >提交</button>
+        </div>
+    </div>
+
+      </form>
+
+	{%if message%}
+	<div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	{{message}}
+	</div>
+	{%endif%}
+
+</div>
+{% endblock %}
+

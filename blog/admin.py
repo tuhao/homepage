@@ -2,6 +2,10 @@ from django.contrib import admin
 from blog.models import *
 from vote import settings
 
+#from django_markdown.admin import MarkdownModelAdmin
+
+#admin.site.register(Blog, MarkdownModelAdmin)
+
 admin.site.register(Sort)
 
 class BlogAdmin(admin.ModelAdmin):
@@ -23,3 +27,6 @@ class AboutAdmin(admin.ModelAdmin):
 admin.site.register(About,AboutAdmin)
 
 admin.site.register(Link)
+
+
+

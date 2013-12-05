@@ -6,6 +6,8 @@ from users.views import *
 from blog.views import *
 import os.path
 
+#from django_markdown import flatpages
+#flatpages.register()
 
 admin.autodiscover()
 
@@ -19,9 +21,12 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    
-    url(r'admin/', include(admin.site.urls)),
 
+    url(r'^xadmin/',include('note.urls')),
+    
+    url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^markdown/',include('django_markdown.urls')),
     #account
     url(r'^$',blogs),    
     #url(r'^accounts/login/$',login),
