@@ -4,6 +4,17 @@
 <meta name="description" content="Yasir的博客——{{blog.title}}">
 {%endblock%}
 {%block content%}
+
+{% load static from staticfiles %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/SyntaxHighlighter.css' %}"></link>
+<script language="javascript" src="{% static 'js/shCore.js' %}"></script>
+<script language="javascript" src="{% static 'js/shBrushCSharp.js'%} "></script>
+<script language="javascript" src="{% static 'js/shBrushXml.js'%}"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = "{% static 'js/clipboard.swf' %}";
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
 <script type="text/javascript">
     $(document).ready(changeActive(0));
 </script>
