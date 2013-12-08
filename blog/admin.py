@@ -27,6 +27,3 @@ class AboutAdmin(admin.ModelAdmin):
 admin.site.register(About,AboutAdmin)
 
 admin.site.register(Link)
-
-
-

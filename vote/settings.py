@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -58,7 +58,9 @@ MEDIA_ROOT = ''
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/'
+
+
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -116,6 +118,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -162,7 +165,16 @@ INSTALLED_APPS = (
     'blog',
     'pagination',
     'duoshuo',
+    'audiofield',
 )
+
+CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
+
+FREQ_TYPE_VALUE = 8000  # 0-Keep original, 8000-8000Hz, 16000-16000Hz, 22050-22050Hz,
+                     # 44100-44100Hz, 48000-48000Hz, 96000-96000Hz
+
+CONVERT_TYPE_VALUE = 0 # 0-Keep original, 1-Convert to MP3, 2-Convert to WAV, 3-Convert to OGG
+
 DUOSHUO_SECRET = '9b387c2e73072572ebc65ffc74d22995'
 
 DUOSHUO_SHORT_NAME = 'yasir'
