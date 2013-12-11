@@ -1,0 +1,17 @@
+<script type="text/javascript">
+var userAgentInfo = navigator.userAgent.toLowerCase();
+document.write(userAgentInfo + '<br />');
+/**
+ * 输出运行的浏览器信息：
+ * Chrome: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/27.0.1453.94 safari/537.36
+ * IE10: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/27.0.1453.94 safari/537.36
+ */ 
+// 通过正则匹配获取浏览类型和版本
+// 例如可以这样获取IE的
+var agent = {};
+if (window.ActiveXObject)
+    agent.ie = userAgentInfo.match(/msie ([\d.]+)/)[1];
+// 下面就输出信息
+if(agent.ie)
+    document.write(agent.ie);  // IE浏览器下输出浏览下版本号，其他浏览器没有输出信息
+</script>

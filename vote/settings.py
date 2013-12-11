@@ -78,8 +78,8 @@ if DEBUG:
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-        '/home/yasir/Django/homepage/vote/static',
-        #'D:/homepage/vote/static',
+        #'/home/yasir/Django/homepage/vote/static',
+        'D:/homepage/vote/static',
     )
 else:
      STATICFILES_DIRS = (
@@ -118,7 +118,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    'audiofield.middleware.threadlocals.ThreadLocals',
+    #'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -165,7 +165,7 @@ INSTALLED_APPS = (
     'blog',
     'pagination',
     'duoshuo',
-    'audiofield',
+    #'audiofield',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
@@ -178,6 +178,8 @@ CONVERT_TYPE_VALUE = 0 # 0-Keep original, 1-Convert to MP3, 2-Convert to WAV, 3-
 DUOSHUO_SECRET = '9b387c2e73072572ebc65ffc74d22995'
 
 DUOSHUO_SHORT_NAME = 'yasir'
+
+DUOSHUO_LIST_TOP_URL = 'http://api.duoshuo.com/sites/listTopThreads.json'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

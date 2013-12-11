@@ -63,6 +63,13 @@
 </p>requires <a href="http://www.macromedia.com/go/getflashplayer">Flash Player</a> 9 or better.</p>
  </div>
 
+
+<div class="span12 well">
+ <li class="nav-header">最新评论</li>
+ <a tagert="_blank" href=""></a>
+</div>
+
+
 {% if links%}
  <div class="span12 well">
   <li class="nav-header">友情链接</li>
@@ -130,8 +137,9 @@ $(document).ready(function(){
 
 {%endfor%}
 
-<div class="pagination pagination-large" > 
-   <h4>{% paginate %}</h4>
+<div class="pagination-large pagination-centered" > 
+  <h4>{% paginate %}</h4>
+   
 </div>
 </div>
 
