@@ -7,28 +7,6 @@ from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from random import randrange
 
-from django.conf import settings
-import urllib
-import httplib
-import json
-
-DUOSHUO_LIST_TOP_URL = getattr(settings.DUOSHUO_LIST_TOP_URL)
-DUOSHUO_SHORT_NAME = getattr(settings.DUOSHUO_SHORT_NAME)
-
-def duoshuo_comments():
-    params = {"short_name":DUOSHUO_SHORT_NAME}
-    headers = {"Content-type":"application/x-www-from-urlencoded","Accept":"text/json",
-    "User-Agent":"mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/31.0.1650.63 safari/537.36"
-    }
-    conn = httplib.HTTPConnection(DUOSHUO_LIST_TOP_URL)
-    conn.request("GET", "", urllib.urlencode(params), headers)
-    response = conn.getresponse()
-    data = response.read()
-    conn.close()
-    ret = json.loads(data)
-    return ret
-    
-
 
 def paginate_sorts(request):
     sort_list = Sort.objects.annotate(

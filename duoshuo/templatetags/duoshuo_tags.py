@@ -30,6 +30,7 @@ class DuoshuoCommentsNode(Node):
     
 def duoshuo_comments(parser, token):
     short_name = token.contents.split()   
+    
     if DUOSHUO_SHORT_NAME:
         return DuoshuoCommentsNode(DUOSHUO_SHORT_NAME)
     elif len(short_name) == 2:

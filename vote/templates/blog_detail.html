@@ -64,8 +64,10 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                </p>
 
                <p>
-                {%duoshuo_comments 'yasir'%}
-                
+                <!-- Duoshuo Comment BEGIN -->
+              <div class="ds-thread" data-thread-key="{{blog.id}}" data-title="{{blog.title}}"></div>
+              <!-- Duoshuo Comment END -->
+               
                </p>
             
 </div><!--/row-->

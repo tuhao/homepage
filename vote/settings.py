@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -78,8 +78,8 @@ if DEBUG:
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-        #'/home/yasir/Django/homepage/vote/static',
-        'D:/homepage/vote/static',
+        '/home/yasir/Django/homepage/vote/static',
+        #'D:/homepage/vote/static',
     )
 else:
      STATICFILES_DIRS = (
@@ -179,7 +179,6 @@ DUOSHUO_SECRET = '9b387c2e73072572ebc65ffc74d22995'
 
 DUOSHUO_SHORT_NAME = 'yasir'
 
-DUOSHUO_LIST_TOP_URL = 'http://api.duoshuo.com/sites/listTopThreads.json'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
