@@ -74,7 +74,9 @@
  <div class="span12 well">
   <li class="nav-header">友情链接</li>
   {% for link in links %}
+  <li>
   <a target="_blank" href="{{link.link}}">{{link.name}}</a>
+  </li>
 {% endfor %}
  </div>
 {% endif %}

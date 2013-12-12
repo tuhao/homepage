@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -78,8 +78,8 @@ if DEBUG:
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-        '/home/yasir/Django/homepage/vote/static',
-        #'D:/homepage/vote/static',
+        #'/home/yasir/Django/homepage/vote/static',
+        'D:/homepage/vote/static',
     )
 else:
      STATICFILES_DIRS = (
