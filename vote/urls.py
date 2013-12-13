@@ -4,6 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from users.views import *
 from blog.views import *
+from blog.blog_feed import LastestBlog
 import os.path
 
 #from django_markdown import flatpages
@@ -20,7 +21,7 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
+    url(r'^rss/$',LastestBlog()),
 
     url(r'^xadmin/',include('note.urls')),
     
@@ -33,11 +34,6 @@ urlpatterns = patterns('',
     #url(r'^accounts/logout/$',logout),
     #url(r'^accounts/regist/$',regist),
     
-    #google
-    #url(r'^google',google),
-    #admin
-    #url(r'^admin/', include(admin.site.urls)),
-    
     #vote
     url(r'^vote/',include('users.urls')),
 
@@ -46,7 +42,7 @@ urlpatterns = patterns('',
 
     #debug
     #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static'}),
-    url(r'^upload/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(os.path.dirname(globals()["__file__"]))+'/upload'}),
+    #url(r'^upload/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(os.path.dirname(globals()["__file__"]))+'/upload'}),
     #url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
     #url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/charts'}),
     #url(r'^img/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/img'}),
