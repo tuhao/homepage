@@ -16,7 +16,7 @@ class Album(models.Model):
 		format='JPEG',
 		options={'qulity':60}
 		)
-	description = models.CharField(null=True,max_length=500)
+	description = models.TextField(u'album_desc',max_length=1000,default='',blank=True)
 
 	def __unicode__(self):
 		return self.name
@@ -43,3 +43,13 @@ class Song(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+
+class Feast(models.Model):
+	name = models.CharField(max_length=50)
+	start_time = models.DateField('start')
+	cover = models.ImageField(upload_to='upload/Feast')
+
+	def __unicode__(self):
+		return self.name
+

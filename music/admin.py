@@ -31,4 +31,15 @@ class SongAdmin(admin.ModelAdmin):
 		settings.STATIC_URL + 'tinymce/config.js',)
 
 admin.site.register(Song, SongAdmin)
-admin.site.register(Album)
+
+class AlbumAdmin(admin.ModelAdmin):
+    list_display = ('id','name')
+
+    class Media:
+        js = (
+        settings.STATIC_URL + 'tinymce/tinymce.min.js',
+        settings.STATIC_URL + 'tinymce/config.js',)
+
+admin.site.register(Album,AlbumAdmin)
+
+admin.site.register(Feast)

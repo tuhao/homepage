@@ -2,66 +2,139 @@
 {%block title%}Yasir的Music{%endblock%}
 
 {% load staticfiles %}
+{% load imagekit %}
+{% load pagination_tags %}
 {%block sidebar%}
-<div class="span3">
-<div class="row-fluid">
-<div class="span8 well bs-docs-sidebar">
-   <!-- blogs begin-->
-   <ul class="nav nav-list bs-docs-sidenav">
-      <li class="nav-header">分类</li>
-      {%for album in albums%}
-        <li>
-         <a href="{% url 'music.views.music_detail' album.id %}">{{album.name}}</a> 
-        </li>
-          {%endfor%}
-    </ul>
-        <!--blogs end-->
-
+<div class="span2">
 </div>
-</div>
-</div>
-
-
-
 {%endblock%}
 
 {%block content%}
+<div class="row-fluid">
+<div class="span4">
+  <div id="albumCarousel" class="transparent carousel slide">
+  <ol class="carousel-indicators">
+    {% for album in albums %}
+    {% if forloop.first%}
+     <li data-target="#albumCarousel" data-slide-to="{{forloop.counter0}}" class="active"></li>
+     {% else %}
+     <li data-target="#albumCarousel" data-slide-to="{{forloop.counter0}}"></li>
+    {% endif %}
+    {% endfor %}
+    
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+
+    {%for album in albums%}
+    <div class="item">
+     <a href="{% url 'music.views.music_detail' album.id %}">{% thumbnail '420x300' album.cover %}</a>
+     <div class="container">
+            <div class="carousel-caption">
+              <p class="lead">{{album.name}}</p>
+            </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
 
 
-
-
-
-<div class="span9">
-          <div class="row-fluid">
-            <div class="span4">
-              <p><a href="/{{songs.audio_file}}"><img src="{% static 'img/MAIN201211081354000196064977315.jpg' %}"></a></p>
-
-            </div><!--/span-->
-             <div class="span4">
-             <p>Donec id elit non mi  </p>
-            </div><!--/span-->
-          </div><!--/row-->
-
-          <div class="row-fluid">
-            <div class="span4">
-              <p><a href="/{{songs.audio_file}}"><img src="{% static 'img/2011-07-28-04-700x525.jpg' %}"></a></p>
-
-            </div><!--/span-->
-             <div class="span4">
-             <p>Donec id elit non mi  </p>
-            </div><!--/span-->
-          </div><!--/row-->
-
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#albumCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#albumCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
   </div>
+{% autopaginate songs 5 %}
+<div class="transparent span6">
+  <ul class="playlist">
+    {%for song in songs%}
+<li><a href="{{MEDIA_URL}}{{song.audio_file}}">{% thumbnail '50x50' song.album.cover %}
+  {{song.name}} - {{song.album.name}}</a></li>
+{%endfor%}
+</ul>
+  <div class="pagination-large pagination-left" > 
+  {% paginate %}
+</div>
+</div>
+
+</div>
 
 <script type="text/javascript" src="{% static 'js/bootstrap-carousel.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
       changeActive(1);
-
+      carouselActive();
+        $('.carousel').carousel()
       });
+
+    function carouselActive(){
+      var carousel = $('#albumCarousel .carousel-inner .item');
+      carousel.eq(0).attr('class','active item');
+    }
+
 
 </script>
 
+{%endblock%}
+
+
+{%block bottom%}
+<div class="span4 offset2">
+  </div>
+
+
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}audiofield/page-player/css/page-player.css" />
+<style type="text/css">
+  ul.playlist li a {
+    color: #08c;
+    display: block;
+    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans","Verdana,Arial,sans-serif";
+    font-size: 15px;
+    vertical-align: top;
+  }
+  div.transparent {
+    filter:alpha(Opacity=80);
+    -moz-opacity:0.5;
+    opacity: 0.8;
+    background-color:transparent;  
+  }
+</style>
+<!-- soundManager.useFlashBlock: related CSS -->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}audiofield/flashblock/flashblock.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}audiofield/script/soundmanager2.js"></script>
+<script type="text/javascript">
+
+soundManager.flashVersion = 9;
+soundManager.preferFlash = true; // for visualization effects
+soundManager.useHighPerformance = true; // keep flash on screen, boost performance
+soundManager.wmode = 'transparent'; // transparent SWF, if possible
+soundManager.useFastPolling = true; // increased JS callback frequency
+soundManager.url = {{ STATIC_URL }}+'audiofield/swf/';
+soundManager.debugFlash = false;
+soundManager.debugMode = false;
+ 
+// Added
+//soundManager.useHTML5Audio = false;
+
+</script>
+
+<script type="text/javascript" src="{{ STATIC_URL }}audiofield/page-player/script/page-player.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      changeActive(1);
+      changeBackground();
+      });
+
+    function changeBackground(){
+      var body = document.getElementsByTagName('body')[0]
+      body.background = '{{feast_img}}';
+
+    }
+
+</script>
+
+{%endblock%}
+{%block footer%}
 {%endblock%}

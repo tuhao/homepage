@@ -36,17 +36,29 @@ function PagePlayer() {
   // configuration options
   // note that if Flash 9 is required, you must set soundManager.flashVersion = 9 in your script before this point.
 
+/*
+var PP_CONFIG = {
+  autoStart: false,      // begin playing first sound when page loads
+  playNext: true,        // stop after one sound, or play through list until end
+  useThrottling: false,  // try to rate-limit potentially-expensive calls (eg. dragging position around)</span>
+  usePeakData: true,     // [Flash 9 only] whether or not to show peak data (left/right channel values) - nor noticable on CPU
+  useWaveformData: false,// [Flash 9 only] show raw waveform data - WARNING: LIKELY VERY CPU-HEAVY
+  useEQData: false,      // [Flash 9 only] show EQ (frequency spectrum) data
+  useFavIcon: false,     // try to apply peakData to address bar (Firefox + Opera) - performance note: appears to make Firefox 3 do some temporary, heavy disk access/swapping/garbage collection at first(?) - may be too heavy on CPU
+  useMovieStar: true     // Flash 9.0r115+ only: Support for a subset of MPEG4 formats.
+}*/
+
   this.config = {
     usePeakData: false,     // [Flash 9 only]: show peak data
     useWaveformData: false, // [Flash 9 only]: enable sound spectrum (raw waveform data) - WARNING: CPU-INTENSIVE: may set CPUs on fire.
     useEQData: false,       // [Flash 9 only]: enable sound EQ (frequency spectrum data) - WARNING: Also CPU-intensive.
     fillGraph: false,       // [Flash 9 only]: draw full lines instead of only top (peak) spectrum points
     useMovieStar: true,     // [Flash 9 only]: Support for MPEG4 audio formats
-    allowRightClick: true,  // let users right-click MP3 links ("save as...", etc.) or discourage (can't prevent.)
+    allowRightClick: false,  // let users right-click MP3 links ("save as...", etc.) or discourage (can't prevent.)
     useThrottling: true,    // try to rate-limit potentially-expensive calls (eg. dragging position around)
     autoStart: false,       // begin playing first sound when page loads
     playNext: true,         // stop after one sound, or play through list until end
-    updatePageTitle: true,  // change the page title while playing sounds
+    updatePageTitle: false,  // change the page title while playing sounds
     emptyTime: '-:--',      // null/undefined timer values (before data is available)
     useFavIcon: false       // try to show peakData in address bar (Firefox + Opera) - may be too CPU heavy
   };
