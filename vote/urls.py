@@ -40,9 +40,12 @@ urlpatterns = patterns('',
     #blog
     url(r'^blogs/',include('blog.urls')),
 
+    #music
+    url(r'music/',include('music.urls')),
+
     #debug
     #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static'}),
-    #url(r'^upload/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(os.path.dirname(globals()["__file__"]))+'/upload'}),
+    url(r'^upload/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(os.path.dirname(globals()["__file__"]))+'/upload'}),
     #url(r'^css/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/css'}),
     #url(r'^charts/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/charts'}),
     #url(r'^img/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static/img'}),

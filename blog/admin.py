@@ -3,7 +3,6 @@ from blog.models import *
 from vote import settings
 
 #from django_markdown.admin import MarkdownModelAdmin
-
 #admin.site.register(Blog, MarkdownModelAdmin)
 
 admin.site.register(Sort)

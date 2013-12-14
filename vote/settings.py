@@ -119,7 +119,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    #'audiofield.middleware.threadlocals.ThreadLocals',
+    'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'pagination',
     'duoshuo',
     #'audiofield',
+    'music',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
