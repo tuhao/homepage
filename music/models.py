@@ -1,12 +1,21 @@
 from django.db import models
 from django.conf import settings
 from audiofield.fields import AudioField
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 import os.path
 from django.utils.translation import ugettext_lazy as _
 
 class Album(models.Model):
 	name = models.CharField(max_length=50)
-	cover = models.CharField(max_length=255)
+	cover = models.ImageField(upload_to= 'upload/album_covers')
+	cover_thumbnail = ImageSpecField(
+		source='cover',
+		processors=[ResizeToFill(190,145)],
+		format='JPEG',
+		options={'qulity':60}
+		)
 	description = models.CharField(null=True,max_length=500)
 
 	def __unicode__(self):
@@ -16,7 +25,7 @@ class Song(models.Model):
 	album = models.ForeignKey(Album)
 	name = models.CharField(max_length=50)
 	created_date = models.DateTimeField('created time',auto_now_add=True)
-	audio_file = AudioField(upload_to='upload/', blank=True,
+	audio_file = AudioField(upload_to='upload/songs', blank=True,
                         ext_whitelist=(".mp3", ".wav", ".ogg"),
                         help_text=("Allowed type - .mp3, .wav, .ogg"))
 	lyc = models.TextField(u'lyc', max_length=1000, default='', blank=True)

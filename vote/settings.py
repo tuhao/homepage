@@ -54,12 +54,16 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+if DEBUG:
+    MEDIA_ROOT = '/home/yasir/Django/homepage/vote/media/'
+else:
+    MEDIA_ROOT = '/srv/uwsgi/homepage/vote/media/'
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/'
+MEDIA_URL = '/media/'
 
 
 
@@ -168,6 +172,7 @@ INSTALLED_APPS = (
     'duoshuo',
     #'audiofield',
     'music',
+    'imagekit',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo

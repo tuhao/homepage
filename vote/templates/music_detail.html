@@ -11,11 +11,8 @@
 
 </script>
 
-<div class="span2">
-         
-              <p><a href="/{{songs.audio_file}}"><img src="{% static 'img/MAIN201211081354000196064977315.jpg' %}"></a></p>
-
-
+<div class="span3">
+      <p><img src="{{album.cover_thumbnail.url}}"></p>
   </div>
 
 
@@ -29,7 +26,7 @@
    			<ul class="playlist">
       		{%for song in songs%}
         		<li>
-        		 <a href="{{song.audio_file}}">{{song.name}}</a> 
+        		 <a href="{{MEDIA_URL}}{{song.audio_file}}">{{song.name}}</a> 
         		</li>
        		{%endfor%}
     			</ul>
@@ -39,9 +36,7 @@
      	<div class="row-fluid">
      		
      		<div class="span8">
-   			<div class="hero-unit">
       		lyc
-    			</div>
      		</div>
 
      	</div>
