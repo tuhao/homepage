@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -123,7 +123,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    #'audiofield.middleware.threadlocals.ThreadLocals',
+    'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -171,7 +171,7 @@ INSTALLED_APPS = (
     'pagination',
     'duoshuo',
     #'audiofield',
-    #'music',
+    'music',
     #'imagekit',
 )
 
