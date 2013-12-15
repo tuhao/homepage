@@ -123,7 +123,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    'audiofield.middleware.threadlocals.ThreadLocals',
+    #'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -171,8 +171,8 @@ INSTALLED_APPS = (
     'pagination',
     'duoshuo',
     #'audiofield',
-    'music',
-    'imagekit',
+    #'music',
+    #'imagekit',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
