@@ -1,7 +1,7 @@
 # Django settings for vote project.
 import os.path
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = None
 ALLOWED_HOSTS = ['192.168.1.102','localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
@@ -54,10 +54,10 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-if DEBUG:
-    MEDIA_ROOT = '/home/yasir/Django/homepage/vote/media/'
-else:
-    MEDIA_ROOT = '/srv/uwsgi/homepage/vote/media/'
+#if DEBUG:
+#MEDIA_ROOT = '/home/yasir/Django/homepage/vote/media/'
+#else:
+MEDIA_ROOT = '/srv/uwsgi/homepage/vote/media/'
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a

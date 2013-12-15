@@ -1,5 +1,7 @@
 from music.models import *
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
+
 
 class SongAdmin(admin.ModelAdmin):
     """Allows the administrator to view and modify uploaded audio files"""
