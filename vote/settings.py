@@ -172,7 +172,7 @@ INSTALLED_APPS = (
     'duoshuo',
     #'audiofield',
     'music',
-    #'imagekit',
+    'imagekit',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
