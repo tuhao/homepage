@@ -1,9 +1,15 @@
+# coding=utf-8 
 # Create your views here.
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response,get_object_or_404
+from django.http import HttpResponse
 from music.models import *
 from datetime import date
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def musics(request):
 	albums = Album.objects.order_by('-id')[:10]
@@ -25,3 +31,7 @@ def feast():
 			if f.start_time.day <= today.day:
 				return f.cover.url
 	return ''
+
+def lyc(request,song_id):
+	song = get_object_or_404(Song,pk=song_id)
+	return HttpResponse(str(song.lyc),content_type="text/plain;charset=utf-8")

@@ -26,6 +26,10 @@ import os
 import shutil
 import logging
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 logger = logging.getLogger('audiofield_log')
 
 
