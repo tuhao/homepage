@@ -1,0 +1,4 @@
+#!/bin/sh
+#start the uwsgi when system startup
+searchd > /dev/null
+uwsgi --ini /srv/uwsgi/homepage/uwsgi.ini > /dev/null
