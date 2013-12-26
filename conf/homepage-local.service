@@ -1,0 +1,13 @@
+[Unit]
+Description=Yasir homepage and sphinx search service
+ConditionPathExists=/srv/uwsgi/homepage/conf/homepage.local
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/srv/uwsgi/homepage/conf/homepage.local start
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target
