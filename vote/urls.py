@@ -41,7 +41,7 @@ urlpatterns = patterns('',
     url(r'^blogs/',include('blog.urls')),
 
     #music
-    url(r'music/',include('music.urls')),
+    #url(r'music/',include('music.urls')),
 
     #debug
     #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.dirname(globals()["__file__"])+'/static'}),
