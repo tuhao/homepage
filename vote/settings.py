@@ -55,7 +55,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 if DEBUG:
-    MEDIA_ROOT = '/home/yasir/Django/homepage/vote/media/'
+    MEDIA_ROOT = 'd:/homepage/vote/media/'
 else:
     MEDIA_ROOT = '/srv/uwsgi/homepage/vote/media/'
 
@@ -83,7 +83,7 @@ if DEBUG:
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-        '/home/yasir/Django/homepage/vote/static',
+        'd:/homepage/vote/static/',
         #'D:/homepage/vote/static',
     )
 else:
@@ -123,7 +123,6 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    'audiofield.middleware.threadlocals.ThreadLocals',
 )
 
 ROOT_URLCONF = 'vote.urls'
@@ -170,9 +169,6 @@ INSTALLED_APPS = (
     'blog',
     'pagination',
     'duoshuo',
-    #'audiofield',
-    'music',
-    'imagekit',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
