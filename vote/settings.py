@@ -3,7 +3,7 @@ import os.path
 
 DEBUG = False
 TEMPLATE_DEBUG = None
-ALLOWED_HOSTS = ['192.168.1.102','localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
+ALLOWED_HOSTS = ['localhost','yasir.cn','www.yasir.cn','yasir.pw','www.yasir.pw']
 
 HOSTNAME = 'yasir.cn'
 MARKDOWN_EDITOR_SKIN = 'simple'
@@ -169,6 +169,8 @@ INSTALLED_APPS = (
     'blog',
     'pagination',
     'duoshuo',
+    'imagekit',
+    'plate',
 )
 
 CHANNEL_TYPE_VALUE = 0  # 0-Keep original, 1-Mono, 2-Stereo
